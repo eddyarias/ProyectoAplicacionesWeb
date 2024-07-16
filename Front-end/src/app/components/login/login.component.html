@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="login-container">
+    <h2>Inicia sesión</h2>
+    <!--<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">-->
+    <form>
+      <div>
+        <input formControlName="username" placeholder="Correo electrónico o nombre de usuario">
+      </div>
+      <div>
+        <input type="password" formControlName="password" placeholder="Contraseña">
+      </div>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+    <p>¿Primera vez en softTech? <a href="#">Regístrate ahora.</a></p>
+  </div>
+  
