@@ -4,10 +4,11 @@ import { LoginComponent } from './components/login/login.component';
 import { CommonModule } from '@angular/common';
 import { EncabezadoComponent } from "./components/encabezado/encabezado.component";
 import { PieComponent } from "./components/pie/pie.component";
+import { AddProductComponent } from './components/add-product/add-product.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, LoginComponent, EncabezadoComponent, PieComponent],
+  imports: [CommonModule, RouterOutlet, LoginComponent, EncabezadoComponent, PieComponent, AddProductComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
