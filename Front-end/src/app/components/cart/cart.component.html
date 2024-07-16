@@ -1,0 +1,102 @@
+<div class="container my-5">
+    <h2>Carrito de Compras</h2>
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="media">
+                  <img src="assets/fc24.jpg" class="mr-3" alt="FC 24" style="width: 64px;">
+                  <div class="media-body">
+                    <h5 class="mt-0">FC 24</h5>
+                    <p>Edición: estándar</p>
+                  </div>
+                </div>
+              </td>
+              <td>$ 11,70</td>
+              <td>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">-</button>
+                  </div>
+                  <input type="text" class="form-control text-center" value="1">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">+</button>
+                  </div>
+                </div>
+              </td>
+              <td>$ 11,70</td>
+              <td>
+                <button class="btn btn-outline-danger">&times;</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="media">
+                  <img src="assets/god-of-war.jpg" class="mr-3" alt="God of War" style="width: 64px;">
+                  <div class="media-body">
+                    <h5 class="mt-0">God of War</h5>
+                    <p>Edición: estándar</p>
+                  </div>
+                </div>
+              </td>
+              <td>$ 11,70</td>
+              <td>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">-</button>
+                  </div>
+                  <input type="text" class="form-control text-center" value="1">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">+</button>
+                  </div>
+                </div>
+              </td>
+              <td>$ 11,70</td>
+              <td>
+                <button class="btn btn-outline-danger">&times;</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <div class="bg-light p-3 rounded">
+          <h4>Total carrito</h4>
+          <p>Subtotal <span class="float-right">$ 23,20</span></p>
+          <div class="form-group">
+            <label for="coupon">Ingrese un cupón</label>
+            <input type="text" class="form-control" id="coupon">
+            <button class="btn btn-primary btn-block mt-2">Aplicar</button>
+          </div>
+          <div class="form-group">
+            <label for="country">País</label>
+            <select class="form-control" id="country">
+              <option>Seleccione un país</option>
+              <option>Ecuador</option>
+              <option>Colombia</option>
+              <option>Perú</option>
+            </select>
+          </div>
+          <p>Total a pagar <span class="float-right">$ 23,20</span></p>
+          <button class="btn btn-warning btn-block">Ir a pagar</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <button class="btn btn-outline-secondary">Continuar comprando</button>
+        <button class="btn btn-outline-danger">Limpiar carrito</button>
+      </div>
+    </div>
+  </div>
+  
