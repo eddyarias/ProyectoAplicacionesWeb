@@ -1,40 +1,62 @@
 <!-- Parte imagen + cuadros de texto -->
 <div class="container">
-    <div class="row m-10"> 
-        <div class="col-md-6">
-            <img src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="God of war PS4">
+    <div class="row m-5"> 
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="cuadro-imagen">
+                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="God of war PS4">
+            </div>
         </div>        
         
         <div class="col-md-6">
-            <div> <!--titulo - stock -->
+            <div class="mt-4"> <!--titulo - stock -->
                 <h2>Good of war Standar edition</h2>
-                <p>$11,70</p>
-                <div class="contenedor-estrellas">
-                    
+                <p class="precio mb-0">$11,70</p>
+                <div class="row mt-2">
+                    <div class="col-md-5 pr-0 contenedor-estrellas">
+                        <i class="bi bi-star star"></i>
+                        <i class="bi bi-star star"></i>
+                        <i class="bi bi-star star"></i>
+                        <i class="bi bi-star star"></i>
+                        <i class="bi bi-star star"></i>
+                    </div>
+                    <div class="col-md-auto ml-0 pl-0 d-flex align-items-center"> 
+                        <p class="small font-weight-bold mb-0">1 Reseña</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Disponibilidad: </p>
+                <div class="row mt-2">
+                    <div class="col-md-3 d-flex align-items-center">
+                        <p class="subtitulo mb-0">Disponibilidad: </p>
+                    </div>
+                    <div class="col-md-auto d-flex align-items-center ml-2" id="check">
+                        <i class="bi bi-check-lg mr-2"></i>
+                        <p class="mb-0">En stock</p>
+                    </div>
                 </div>
-                <div>
+                <div class="mt-2 mb-4">
                     <p>Solo queda 46 en stock</p>
                 </div>
                 <hr>
             </div>
-            <div> <!--Caracteristicas -->
+            <div class="mt-4"> <!--Caracteristicas -->
                 <div>
-                    <p>Sku: 01133-9-9</p>
+                    <p> <span class="subtitulo">Sku:</span> 01133-9-9</p>
                 </div>
                 <div>
-                    <p>Categoría: PS4 40% Ficción</p>
+                    <p><span class="subtitulo">Categoría:</span> PS4 40% Ficción</p>
                 </div>
                 <div>
-                    <p>Compartir: </p>
+                    <p class="subtitulo">Compartir: </p>
+                    <div class="row justify-content-center">
+                        <i class="bi bi-browser-chrome redes-sociales"></i>
+                        <i class="bi bi-facebook redes-sociales"></i>
+                        <i class="bi bi-whatsapp redes-sociales"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div> 
 
-    <div class="row m-20 d-flex justify-content-center">
+    <div class="row m-20 justify-content-center">
         <div> <!-- Descripcion y reseñas -->
             <button class="btn btn-primary mx-2">Descripción</button>
             <button class="btn btn-secondary mx-2">Reseñas</button>
