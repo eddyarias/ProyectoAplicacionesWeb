@@ -11,11 +11,12 @@ import { CategoryNavigationComponent  } from './navegacion/navegacion.component'
 import { EncabezadoComponent } from "./components/encabezado/encabezado.component";
 import { PieComponent } from "./components/pie/pie.component";
 import { CartComponent } from "./components/cart/cart.component";
+import { HomeComponent } from './components/home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, LoginComponent, RegisterComponent, EncabezadoComponent, PieComponent, CartComponent],
+  imports: [CommonModule, RouterOutlet, LoginComponent, RegisterComponent, EncabezadoComponent, PieComponent, CartComponent, HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
