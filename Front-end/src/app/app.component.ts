@@ -6,7 +6,9 @@ import { CommonModule } from '@angular/common';
 import { EncabezadoComponent } from "./components/encabezado/encabezado.component";
 import { PieComponent } from "./components/pie/pie.component";
 import { CartComponent } from "./components/cart/cart.component";
+import { HomeComponent } from './components/home/home.component';
 import { ReviewComponent } from "./components/review/review.component";
+
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,8 @@ import { ReviewComponent } from "./components/review/review.component";
             RegisterComponent,
             EncabezadoComponent, 
             PieComponent, 
-            CartComponent, 
+            CartComponent,
+            HomeComponent,
             ReviewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
