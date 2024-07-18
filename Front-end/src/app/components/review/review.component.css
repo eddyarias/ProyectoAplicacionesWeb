@@ -1,0 +1,67 @@
+.review-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-card {
+    border-left: 5px solid #ffc107;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .review-card h5 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-primary {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.5);
+  }
+  
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  
+  .star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: #ffc107;
+  }
+  
+  .star.selected,
+  .star.selected ~ .star {
+    color: #ffc107;
+  }
+  
+  .existing-reviews h3 {
+    color: #333;
+  }
+  
