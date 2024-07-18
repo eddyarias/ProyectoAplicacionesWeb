@@ -8,6 +8,7 @@ import { PieComponent } from "./components/pie/pie.component";
 import { CartComponent } from "./components/cart/cart.component";
 import { HomeComponent } from './components/home/home.component';
 import { ReviewComponent } from "./components/review/review.component";
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { ReviewComponent } from "./components/review/review.component";
             PieComponent, 
             CartComponent,
             HomeComponent,
-            ReviewComponent],
+            ReviewComponent,
+            PaymentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,49 @@
+<div class="payment-page">
+    <div class="order-summary">
+        <h2><i class="fas fa-shopping-cart"></i>Resumen del Pedido</h2>
+        <div class="order-item">
+            <img src="http://surl.li/fynotu" alt="Producto">
+            <div class="item-details">
+                <p class="item-name">Nombre del Producto</p>
+                <p class="item-price">$29.99</p>
+            </div>
+        </div>
+        <div class="order-item">
+            <img src="http://surl.li/fynotu" alt="Producto">
+            <div class="item-details">
+                <p class="item-name">Nombre del Producto</p>
+                <p class="item-price">$0.99</p>
+            </div>
+        </div>
+        <div class="order-total">
+            <p>Total: $30.98</p>
+        </div>
+    </div>
+    
+    <div class="payment-method">
+        <h2><i class="fas fa-credit-card"></i>Método de Pago</h2>
+        <form>
+            <div class="payment-option">
+                <input type="radio" id="credit-card" name="payment" value="credit-card">
+                <label for="credit-card">Tarjeta de Crédito/Débito</label>
+                <div class="payment-details" id="credit-card-details">
+                    <input type="text" placeholder="Número de Tarjeta" required>
+                    <input type="text" placeholder="Nombre en la Tarjeta" required>
+                    <input type="text" placeholder="Fecha de Expiración (MM/AA)" required>
+                    <input type="text" placeholder="CVV" required>
+                </div>
+            </div>
+            
+            <div class="payment-option">
+                <input type="radio" id="paypal" name="payment" value="paypal">
+                <label for="paypal">PayPal</label>
+                <div class="payment-details" id="paypal-details">
+                    <p>Serás redirigido a PayPal para completar el pago.</p>
+                </div>
+            </div>
+            
+            <button type="submit" class="confirm-payment">Confirmar Pago</button>
+            <button type="button" class="cancel-payment">Cancelar</button>
+        </form>
+    </div>
+</div>

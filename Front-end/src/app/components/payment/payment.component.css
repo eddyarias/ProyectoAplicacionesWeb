@@ -1,0 +1,108 @@
+.payment-page {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order-summary, .payment-method {
+    width: 47%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+h2 i {
+    margin-right: 10px;
+}
+
+.order-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.order-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 16px;
+    margin: 0;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #007bff;
+    margin: 0;
+}
+
+.order-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.payment-option {
+    margin-bottom: 10px;
+}
+
+.payment-details {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.payment-details input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.confirm-payment {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 193, 7);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.confirm-payment:hover {
+    background-color: rgb(107, 80, 0);
+}
+
+.cancel-payment {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(145, 145, 145);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancel-payment:hover {
+    background-color: rgb(80, 80, 80);
+}
