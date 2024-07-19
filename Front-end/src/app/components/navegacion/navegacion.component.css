@@ -1,23 +1,49 @@
-nav {
-    background-color: #f8f9fa;
-    padding: 1rem;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline;
-    margin-right: 1rem;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+.navegacion {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.category-section {
+  border: 1px solid #ddd;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.category-section h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.category-section div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.category-section div label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.category-section div label span {
+  margin-left: auto;
+}
+
+/* Estilos para el botón de resetear */
+button {
+  padding: 8px 16px; /* Ajusta el tamaño del botón */
+  background-color: #ffd002; /* Cambia el color de fondo */
+  color: white; /* Cambia el color del texto */
+  border: none; /* Elimina el borde predeterminado */
+  border-radius: 4px; /* Añade esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 14px; /* Ajusta el tamaño de la fuente */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+}

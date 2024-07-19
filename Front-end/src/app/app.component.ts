@@ -9,6 +9,7 @@ import { CartComponent } from "./components/cart/cart.component";
 import { HomeComponent } from './components/home/home.component';
 import { ReviewComponent } from "./components/review/review.component";
 import { PaymentComponent } from './components/payment/payment.component';
+import { NavegacionComponent  } from './components/navegacion/navegacion.component';
 
 
 @Component({
@@ -23,7 +24,7 @@ import { PaymentComponent } from './components/payment/payment.component';
             CartComponent,
             HomeComponent,
             ReviewComponent,
-            PaymentComponent],
+            PaymentComponent, NavegacionComponent], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
