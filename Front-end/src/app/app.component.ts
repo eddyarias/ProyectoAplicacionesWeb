@@ -11,8 +11,9 @@ import { ReviewComponent } from "./components/review/review.component";
 import { PaymentComponent } from './components/payment/payment.component';
 import { NavegacionComponent  } from './components/navegacion/navegacion.component';
 
-import { FormsModule } from '@angular/forms'; // Importar FormsModule si no está ya importado
 
+import { FormsModule } from '@angular/forms'; // Importar FormsModule si no está ya importado
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule si no est�
             RegisterComponent,
             EncabezadoComponent, 
             PieComponent, 
-            CartComponent,
+            CartComponent, AddProductComponent,
             HomeComponent,
             ReviewComponent,
             PaymentComponent, 
