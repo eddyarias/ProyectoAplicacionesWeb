@@ -1,0 +1,41 @@
+﻿id;nombre;descripcion;precio;stock
+1;The Legend of Zelda;Breath of the Wild;59.99;150
+2;Super Mario Odyssey;A thrilling Mario adventure;49.99;200
+3;Minecraft;An open-world building game;26.95;500
+4;Fortnite;A popular battle royale game;0.00;1000
+5;Red Dead Redemption 2;An epic tale of the Wild West;59.99;100
+6;The Witcher 3;Wild Hunt;39.99;120
+7;Cyberpunk 2077;An open-world RPG set in Night City;59.99;80
+8;Ghost of Tsushima;A samurai adventure game;59.99;140
+9;Animal Crossing;New Horizons;59.99;300
+10;Among Us;A multiplayer party game;5.00;1000
+11;Call of Duty;Modern Warfare;59.99;200
+12;Assassin's Creed Valhalla;An open-world Viking adventure;59.99;150
+13;God of War;A mythical Norse adventure;39.99;130
+14;Horizon Zero Dawn;A futuristic adventure game;49.99;170
+15;FIFA 21;The latest in the FIFA series;59.99;250
+16;Final Fantasy VII Remake;A remake of the classic RPG;59.99;90
+17;Doom Eternal;A fast-paced FPS game;59.99;110
+18;Halo Infinite;The latest in the Halo series;59.99;200
+19;Resident Evil 3;A remake of the classic horror game;49.99;100
+20;Sekiro;Shadows Die Twice;59.99;60
+21;Spider-Man;An open-world superhero game;49.99;180
+22;Death Stranding;A unique delivery adventure;59.99;70
+23;Control;A supernatural action-adventure;39.99;90
+24;Star Wars Jedi;Fallen Order;59.99;110
+25;Bloodborne;A challenging action RPG;19.99;60
+26;Dark Souls III;A difficult action RPG;59.99;80
+27;Persona 5;A stylish JRPG;49.99;90
+28;Overwatch;A team-based shooter;39.99;150
+29;Apex Legends;A free-to-play battle royale;0.00;1000
+30;Nier Automata;An action RPG;39.99;100
+31;The Last of Us Part II;A gripping post-apocalyptic tale;59.99;200
+32;Mario Kart 8 Deluxe;A fun racing game;59.99;300
+33;Monster Hunter World;A cooperative action RPG;29.99;140
+34;The Sims 4;A life simulation game;39.99;400
+35;Borderlands 3;A loot-driven FPS;49.99;150
+36;Gears 5;A cover-based shooter;59.99;100
+37;Dragon Ball Z;Kakarot;59.99;80
+38;Days Gone;A survival horror game;39.99;90
+39;Metro Exodus;A post-apocalyptic FPS;49.99;70
+40;Rainbow Six Siege;A tactical shooter;19.99;500

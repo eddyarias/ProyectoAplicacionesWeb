@@ -1,0 +1,80 @@
+﻿id;producto_id;comentario;rating
+1;1;Un juego increíble con una exploración impresionante.;5
+2;1;Muy divertido pero algunas mecánicas son complicadas.;4
+3;2;Una aventura emocionante con niveles desafiantes.;5
+4;2;Perfecto para todos los fans de Mario.;5
+5;3;La creatividad no tiene límites en este juego.;5
+6;3;Ideal para jugar con amigos.;4
+7;4;Muy adictivo y lleno de acción.;5
+8;5;Una historia épica con personajes memorables.;5
+9;5;Los gráficos son impresionantes.;4
+10;6;Un RPG profundo con muchas horas de juego.;5
+11;6;Los combates son muy satisfactorios.;4
+12;7;Una experiencia inmersiva  aunque con algunos bugs.;3
+13;7;La historia es muy atrapante.;4
+14;8;Una verdadera obra maestra samurái.;5
+15;8;Visualmente hermoso.;5
+16;9;Muy relajante y adictivo.;5
+17;9;Perfecto para escapar de la realidad.;5
+18;10;Ideal para fiestas y reuniones.;5
+19;10;Divertido pero puede volverse repetitivo.;3
+20;11;Una experiencia de shooter excelente.;5
+21;11;Los modos multijugador son increíbles.;4
+22;12;Una aventura vikinga muy bien hecha.;5
+23;12;Los paisajes son espectaculares.;4
+24;13;Un juego intenso con una gran narrativa.;5
+25;13;Los combates son muy desafiantes.;4
+26;14;Una experiencia de mundo abierto impresionante.;5
+27;14;Las mecánicas de juego son muy innovadoras.;5
+28;15;El mejor juego de fútbol hasta ahora.;5
+29;15;Los gráficos y jugabilidad son top.;4
+30;16;Un remake muy bien logrado.;5
+31;16;La nostalgia con gráficos modernos.;4
+32;17;Muy emocionante y lleno de acción.;5
+33;17;Perfecto para los amantes de los FPS.;4
+34;18;Una gran adición a la serie Halo.;5
+35;18;El modo multijugador es muy divertido.;4
+36;19;Un remake fiel y aterrador.;5
+37;19;Los gráficos son de alta calidad.;4
+38;20;Un desafío constante y gratificante.;5
+39;20;La historia es muy envolvente.;4
+40;21;Un excelente juego de superhéroes.;5
+41;21;Los gráficos y la jugabilidad son excelentes.;5
+42;22;Una experiencia única e innovadora.;5
+43;22;La historia es muy intrigante.;4
+44;23;Un juego muy bien hecho.;4
+45;23;Los poderes sobrenaturales son muy divertidos.;5
+46;24;Un gran juego de Star Wars.;5
+47;24;La jugabilidad es muy fluida.;4
+48;25;Un juego desafiante pero muy gratificante.;5
+49;25;La atmósfera es muy oscura y envolvente.;4
+50;26;Un RPG muy desafiante.;5
+51;26;Los jefes son muy difíciles pero satisfactorios de vencer.;4
+52;27;Un JRPG con mucho estilo.;5
+53;27;La historia es muy interesante.;4
+54;28;Un shooter en equipo muy adictivo.;5
+55;28;Los héroes tienen habilidades muy únicas.;4
+56;29;Un battle royale muy bien hecho.;5
+57;29;Las actualizaciones constantes son geniales.;4
+58;30;Un RPG de acción muy bien logrado.;5
+59;30;La música y el arte son increíbles.;4
+60;31;Una narrativa muy potente.;5
+61;31;Los personajes son muy bien desarrollados.;4
+62;32;Un juego de carreras muy divertido.;5
+63;32;Perfecto para jugar con amigos.;4
+64;33;Un RPG cooperativo muy entretenido.;5
+65;33;Las criaturas son muy bien diseñadas.;4
+66;34;Un simulador de vida muy adictivo.;5
+67;34;Las expansiones son muy buenas.;4
+68;35;Un FPS muy divertido.;5
+69;35;La historia es muy interesante.;4
+70;36;Un shooter táctico muy bien hecho.;5
+71;36;Los gráficos son impresionantes.;4
+72;37;Un gran juego para los fans de Dragon Ball.;5
+73;37;Los combates son muy intensos.;4
+74;38;Un juego de supervivencia muy bien logrado.;5
+75;38;La atmósfera es muy envolvente.;4
+76;39;Un FPS post-apocalíptico muy bien hecho.;5
+77;39;Los gráficos son de alta calidad.;4
+78;40;Un shooter táctico muy adictivo.;5
+79;40;Las mecánicas de juego son muy innovadoras.;4

@@ -11,6 +11,8 @@ import { ReviewComponent } from "./components/review/review.component";
 import { PaymentComponent } from './components/payment/payment.component';
 import { NavegacionComponent  } from './components/navegacion/navegacion.component';
 
+import { FormsModule } from '@angular/forms'; // Importar FormsModule si no está ya importado
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +26,9 @@ import { NavegacionComponent  } from './components/navegacion/navegacion.compone
             CartComponent,
             HomeComponent,
             ReviewComponent,
-            PaymentComponent, NavegacionComponent], 
+            PaymentComponent, 
+            NavegacionComponent,
+            FormsModule], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,4 +37,16 @@ import { NavegacionComponent  } from './components/navegacion/navegacion.compone
 
 export class AppComponent {
   title = 'Front-end';
+  products = [
+    { name: 'Producto 1', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 2', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 3', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 4', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 5', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 6', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 7', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 8', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 9', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 10', image: 'https://via.placeholder.com/150' }
+  ];
 }

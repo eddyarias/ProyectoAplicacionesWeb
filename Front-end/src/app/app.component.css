@@ -1,2 +1,44 @@
 /*@import "~bootstrap/dist/css/bootstrap.min.css";
 */
+.container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh; /* Hace que ocupe toda la altura de la ventana */
+  }
+  
+  .col-3 {
+    flex: 0 0 25%; /* Hace que ocupe una cuarta parte de la pantalla */
+    max-width: 25%;
+    background-color: #f8f9fa; /* Color de fondo para la barra lateral */
+    padding: 1em;
+    overflow-y: auto; /* Añade scroll si el contenido es demasiado grande */
+  }
+  
+  .col-9 {
+    flex: 1;
+    padding: 1em;
+    overflow-y: auto; /* Añade scroll si el contenido es demasiado grande */
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Configura la cuadrícula 3 x N */
+    gap: 1em; /* Espacio entre los elementos */
+  }
+  
+  .product {
+    border: 1px solid #ddd;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  .product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+  }
+  
+  .product p {
+    margin: 0;
+  }
+  

@@ -1,0 +1,41 @@
+﻿producto_id;categoria_id;nombre_producto;nombre_categoria
+1;1;The Legend of Zelda: Breath of the Wild;Acción/Aventura
+2;1;Super Mario Odyssey;Acción/Aventura
+3;2;Minecraft;Sandbox/Creativo
+4;3;Fortnite;Battle Royale/Multijugador
+5;1;Red Dead Redemption 2;Acción/Aventura
+6;1;The Witcher 3: Wild Hunt;Acción/Aventura
+7;4;Cyberpunk 2077;RPG
+8;1;Ghost of Tsushima;Acción/Aventura
+9;2;Animal Crossing: New Horizons;Sandbox/Creativo
+10;3;Among Us;Battle Royale/Multijugador
+11;3;Call of Duty: Modern Warfare;Battle Royale/Multijugador
+12;1;Assassin's Creed Valhalla;Acción/Aventura
+13;1;God of War;Acción/Aventura
+14;1;Horizon Zero Dawn;Acción/Aventura
+15;5;FIFA 21;Deportes
+16;6;Final Fantasy VII Remake;Remakes
+17;7;Doom Eternal;FPS
+18;7;Halo Infinite;FPS
+19;6;Resident Evil 3;Remakes
+20;1;Sekiro: Shadows Die Twice;Acción/Aventura
+21;1;Spider-Man;Acción/Aventura
+22;1;Death Stranding;Acción/Aventura
+23;1;Control;Acción/Aventura
+24;1;Star Wars Jedi: Fallen Order;Acción/Aventura
+25;1;Bloodborne;Acción/Aventura
+26;1;Dark Souls III;Acción/Aventura
+27;4;Persona 5;RPG
+28;3;Overwatch;Battle Royale/Multijugador
+29;3;Apex Legends;Battle Royale/Multijugador
+30;4;Nier Automata;RPG
+31;1;The Last of Us Part II;Acción/Aventura
+32;1;Mario Kart 8 Deluxe;Acción/Aventura
+33;4;Monster Hunter World;RPG
+34;8;The Sims 4;Simulador
+35;7;Borderlands 3;FPS
+36;7;Gears 5;FPS
+37;4;Dragon Ball Z: Kakarot;RPG
+38;9;Days Gone;Survival Horror
+39;4;Metro Exodus;RPG
+40;10;Rainbow Six Siege;Táctico
