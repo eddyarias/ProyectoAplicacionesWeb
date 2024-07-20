@@ -4,7 +4,9 @@
   "description": "Backend proyecto aplicaciones web",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+
   },
   "keywords": [
     "videojuegos"
@@ -16,5 +18,8 @@
     "connect-multiparty": "^2.2.0",
     "express": "^4.19.2",
     "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
