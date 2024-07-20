@@ -1,0 +1,25 @@
+<div class="navegacion">
+  <div class="category-section">
+    <h3>Consola <button (click)="resetCategory('console')">Resetear</button></h3>
+    <div *ngFor="let item of consoles">
+      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
+      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
+    </div>
+  </div>
+  
+  <div class="category-section">
+    <h3>Disponibles <button (click)="resetCategory('availability')">Resetear</button></h3>
+    <div *ngFor="let item of availability">
+      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
+      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
+    </div>
+  </div>
+  
+  <div class="category-section">
+    <h3>Precio <button (click)="resetCategory('price')">Resetear</button></h3>
+    <div *ngFor="let item of prices">
+      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
+      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
+    </div>
+  </div>
+</div>

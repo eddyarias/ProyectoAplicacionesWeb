@@ -1,0 +1,39 @@
+<div class="review-section">
+    <h3 class="text-center mb-4">Agregar una reseña</h3>
+    <form>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" class="form-control" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label for="rating">Calificación</label>
+        <div class="rating">
+          <span class="star" data-value="5">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="1">★</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="comment">Comentario</label>
+        <textarea id="comment" class="form-control" rows="3" placeholder="Escribe tu reseña aquí..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Enviar reseña</button>
+    </form>
+  
+    <div class="existing-reviews mt-5">
+      <h3 class="text-center mb-4">Reseñas</h3>
+      <div class="review-card p-3 mb-3 bg-light border rounded shadow-sm">
+        <h5>Juan Perez</h5>
+        <p class="text-muted">Calificación: 5/5</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac turpis ac erat convallis dictum.</p>
+      </div>
+      <div class="review-card p-3 mb-3 bg-light border rounded shadow-sm">
+        <h5>Maria Lopez</h5>
+        <p class="text-muted">Calificación: 4/5</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac turpis ac erat convallis dictum.</p>
+      </div>
+    </div>
+  </div>
+  

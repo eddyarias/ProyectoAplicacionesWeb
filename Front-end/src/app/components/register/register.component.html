@@ -1,31 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="stylesheet" href="register.component.css">
-</head>
-<body>
-    <div class="contenedor-registro">
-        <h2>Registrarse</h2>
-        <form action="" method="post">
-            <label for="correo_electronico">Correo electrónico:</label>
-            <input type="email" id="correo_electronico" name="correo_electronico" required>
-
-            <label for="nombre_usuario">Nombre de usuario:</label>
-            <input type="text" id="nombre_usuario" name="nombre_usuario" required>
-
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
-
-            <label for="repetir_contrasena">Repetir contraseña:</label>
-            <input type="password" id="repetir_contrasena" name="repetir_contrasena" required>
-
-            <button type="submit">Registrar cuenta</button>
-        </form>
-
-        <p>¿Ya tienes cuenta? <a href="#">Ingresa sesión aquí.</a></p>
-    </div>
-</body>
-</html>
+<div class="register-container">
+    <h2>Registrarse</h2>
+    <form>  
+        <div>
+            <input type="email" class="register-input" placeholder="Correo electrónico">
+        </div>
+        <div>
+        <input type="text" class="register-input" placeholder="Nombre de usuario">
+        </div>
+        <input type="password" class="register-input" placeholder="Contraseña">
+        <input type="password" class="register-input" placeholder="Repetir contraseña">
+        <button class="register-button">Registrarse</button>
+    </form>
+</div>
