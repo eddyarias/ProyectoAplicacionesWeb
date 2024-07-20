@@ -1,9 +1,38 @@
+.logo-img {
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
 .footer-icon {
-    height: 30px;
-    margin-right: 10px;
-  }
-  
-  .social-icons {
-    margin-top: 10px;
-  }
-  
+  width: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.map-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}

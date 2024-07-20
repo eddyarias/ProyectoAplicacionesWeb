@@ -1,0 +1,29 @@
+.table-borderless td, .table-borderless th {
+    border: none;
+  }
+  
+  .input-group {
+    max-width: 120px;
+  }
+  
+  .media img {
+    width: 64px;
+    height: auto;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .custom-btn {
+    font-size: 1.25rem;
+    padding: 1.5rem 3rem;
+  }
+  
