@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/usuario');
 
 var controller = {
     // Método para registrar un nuevo usuario
@@ -6,7 +6,8 @@ var controller = {
         try {
             var params = req.body;
             var user = new User();
-            user.name = params.name;
+            user.id = params.id;
+            user.nombre = params.nombre;
             user.email = params.email;
             user.password = params.password;
 
@@ -25,7 +26,7 @@ var controller = {
     // Método para obtener todos los usuarios
     getUsers: async function (req, res) {
         try {
-            const users = await User.find({}).sort({ name: 1 }).exec();
+            const users = await User.find({}).sort({ nombre: 1 }).exec();
             if (users.length === 0) {
                 return res.status(404).send({ message: 'No hay usuarios registrados' });
             }
@@ -39,7 +40,7 @@ var controller = {
         try {
             var userId = req.params.id;
             if (!userId) return res.status(400).send({ message: "El ID del usuario es requerido" });
-            var user = await User.findById(userId);
+            var user = await User.findOne({ id: userId });
             if (!user) return res.status(404).send({ message: "Usuario no encontrado" });
             return res.status(200).send({ user });
         } catch (error) {
@@ -51,7 +52,7 @@ var controller = {
         try {
             var userId = req.params.id;
             if (!userId) return res.status(400).send({ message: "El ID del usuario es requerido" });
-            var userRemoved = await User.findByIdAndDelete(userId);
+            var userRemoved = await User.findOneAndDelete({ id: userId });
             if (!userRemoved) return res.status(404).send({ message: "Usuario no encontrado" });
             return res.status(200).send({ message: 'Usuario eliminado exitosamente', user: userRemoved });
         } catch (error) {
@@ -63,7 +64,7 @@ var controller = {
         try {
             var userId = req.params.id;
             if (!userId) return res.status(400).send({ message: "El ID del usuario es requerido" });
-            var userUpdated = await User.findByIdAndUpdate(userId, req.body, { new: true });
+            var userUpdated = await User.findOneAndUpdate({ id: userId }, req.body, { new: true });
             if (!userUpdated) return res.status(404).send({ message: "Usuario no encontrado" });
             return res.status(200).send({ message: 'Usuario actualizado exitosamente', user: userUpdated });
         } catch (error) {
