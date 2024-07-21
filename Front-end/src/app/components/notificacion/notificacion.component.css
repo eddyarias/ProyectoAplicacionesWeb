@@ -1,0 +1,16 @@
+.contenedor-noti{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.contenedor-txt{
+    background-color: #e2f4ff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.notificacion{
+    font-size: 100px;
+
+}
