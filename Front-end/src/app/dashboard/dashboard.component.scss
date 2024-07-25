@@ -1,0 +1,108 @@
+///ENCABEZADO
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  
+  ///FOOTER
+  /* app.component.scss */
+  .footer {
+    background-color: #1d1d1d;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  
+    .footer-section {
+      flex: 1;
+      padding: 0 20px;
+  
+      h4 {
+        color: #00bcd4;
+        margin-bottom: 15px;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          margin-bottom: 10px;
+        }
+      }
+  
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          max-width: 100px;
+          margin-bottom: 10px;
+        }
+      }
+  
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+  
+        i {
+          font-size: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  
+  ///
+  .login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e2f4ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #1b5a7d;
+    text-align: left;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #eda315;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #c99803;
+  }
+  
+  p {
+    text-align: left;
+  }
+  a {
+    color: #2c2d2e;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  
