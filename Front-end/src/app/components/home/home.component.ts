@@ -16,20 +16,24 @@ export class HomeComponent implements OnInit{
   public juegos:Juego[];
   public url:string;
 
-  constructor(private _servicePelicula:JuegoService) {
+  constructor(
+    private _servicePelicula:JuegoService
+  ){
     this.juegos = [];
     this.url = Global.url;
   }
   
   ngOnInit(): void {
     this.getGames();
+
   }
 
   getGames(){
     this._servicePelicula.getGames().subscribe(
       response => {
-        if(response.juegos){
-          this.juegos = response.juegos;
+        if(response.games){
+          this.juegos = response.games;
+          console.log("SI vale"+this.juegos); 
         }
       },
       error => {  
@@ -38,3 +42,5 @@ export class HomeComponent implements OnInit{
     )
   }
 }
+
+
