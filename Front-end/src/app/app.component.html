@@ -12,30 +12,8 @@
   <app-encabezado></app-encabezado>
    <!--Solo para ver como se presenta el login y el registro-->
 
-  <app-login></app-login>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-3">
-        <app-navegacion></app-navegacion>
-      </div>
-      <div class="col-9">
-        <div class="product-grid">
-          <div class="product" *ngFor="let product of products">
-            <img [src]="product.image" alt="{{product.name}}">
-            <p>{{product.name}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <app-register></app-register>
-  <!--Solo para ver como se presenta el carro-->
-  <app-cart></app-cart>
   <!--Solo para ver como se presenta la pagina de inicio-->
   <app-home></app-home>
-  <app-review></app-review>
-  <app-payment></app-payment>
-  <app-add-product></app-add-product>
 
   <app-pie></app-pie>
   
