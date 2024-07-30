@@ -14,3 +14,23 @@ export const routes: Routes = [
         ]
     }
 ];
+
+// export const routes: Routes = [
+//     { path: '', redirectTo: '/login', pathMatch: 'full' },
+//     { path: 'log', component:  DashboardComponent,
+//         children: [
+//             {
+//                 path: 'login',
+//                 loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+//             }
+//         ]
+//     },
+//     { path: 'paginas', component: DashboardComponent,
+//         children: [
+//             {
+//                 path: 'inicios',
+//                 loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioModule)
+//             }
+//         ]
+//     }
+// ];
