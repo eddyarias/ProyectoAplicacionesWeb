@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var userRoutes = require('./routes/usuario.routes');
+var gameRoutes = require('./routes/game.router');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,6 +16,10 @@ app.use((req, res, next) => {
 });
 
 app.use('/',userRoutes);
+
+//rutas del juego
+app.use('/',gameRoutes);
+
 
 //app.use('/api/users', userRoutes);
 

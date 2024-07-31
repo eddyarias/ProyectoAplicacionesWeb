@@ -14,6 +14,7 @@ import { NavegacionComponent  } from './components/navegacion/navegacion.compone
 
 import { FormsModule } from '@angular/forms'; // Importar FormsModule si no está ya importado
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
             ReviewComponent,
             PaymentComponent, 
             NavegacionComponent,
-            FormsModule], 
+            FormsModule,
+            HttpClientModule], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
