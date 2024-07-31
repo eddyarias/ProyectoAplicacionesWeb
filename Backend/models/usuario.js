@@ -22,10 +22,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    imagen: {
-        type: String,
-        required: true
-    }
+
 });
 
 const User = mongoose.model('usuarios', userSchema);

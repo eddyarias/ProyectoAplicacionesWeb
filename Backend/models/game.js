@@ -30,6 +30,10 @@ const gameSchema = new mongoose.Schema({
             message: 'El stock debe ser un número entero'
         }
 
+    },
+    imagen: {
+        type: String,
+        required: true
     }
 });
 
