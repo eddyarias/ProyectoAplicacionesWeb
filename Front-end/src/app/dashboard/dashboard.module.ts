@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 //CONTENIDO
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatButtonModule, 
     MatIconModule,

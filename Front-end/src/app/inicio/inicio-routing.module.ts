@@ -10,7 +10,7 @@ import {InicioPagoComponent} from './inicio-pago/inicio-pago.component';
 
 const routes: Routes=[
    {path:'inicio', component: InicioInicioComponent},
-   {path:'filtrar', component: InicioFiltrarComponent},
+   {path:'productos', component: InicioFiltrarComponent},
    {path:'carrito', component: InicioCarritoComponent},
    {path:'agregar', component: InicioAddComponent},
    {path:'pago', component: InicioPagoComponent}

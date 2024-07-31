@@ -13,4 +13,7 @@ export class LoginComponent {
   iniciar() {
     this.router.navigateByUrl('/paginas/inicios/inicio');
   }
+  crear() {
+    this.router.navigateByUrl('/log/login/create');
+  }
 }
