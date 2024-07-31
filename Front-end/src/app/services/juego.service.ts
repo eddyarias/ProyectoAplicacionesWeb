@@ -23,4 +23,6 @@ export class JuegoService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url+'get-juego/'+id, {headers:headers});
     }
+
+    
 }

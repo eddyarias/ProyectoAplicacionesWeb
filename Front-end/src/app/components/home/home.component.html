@@ -18,72 +18,16 @@
 <div class="popular-games-container">
     <h2>Videojuegos populares</h2>
     <div class="row m-2">
-        <div class="col-md-3 mb-4">
+        <div class="col-md-3 mb-4" *ngFor="let juego of juegosPopulares ">
             <div class="popular-game">
-                <img class="game-image" src="http://surl.li/fynotu" alt="Juego 1">
-                <h4 class="game-title">Título del Juego 1</h4>
-                <p class="game-price">$29.99</p>
+                <img class="game-image" src="{{url+'get-imagen/'+juego.imagen}}" alt="Juego 1">
+                <h4 class="game-title"> {{juego.nombre}} </h4>
+                <p class="game-price"> {{juego.precio}} </p>
                 <div class="game-stars">
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="popular-game">
-                <img class="game-image" src="http://surl.li/fynotu" alt="Juego 2">
-                <h4 class="game-title">Título del Juego 2</h4>
-                <p class="game-price">$39.99</p>
-                <div class="game-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="popular-game">
-                <img class="game-image" src="http://surl.li/fynotu" alt="Juego 3">
-                <h4 class="game-title">Título del Juego 3</h4>
-                <p class="game-price">$49.99</p>
-                <div class="game-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="popular-game">
-                <img class="game-image" src="http://surl.li/fynotu" alt="Juego 4">
-                <h4 class="game-title">Título del Juego 4</h4>
-                <p class="game-price">$19.99</p>
-                <div class="game-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="popular-game">
-                <img class="game-image" src="http://surl.li/fynotu" alt="Juego 5">
-                <h4 class="game-title">Título del Juego 5</h4>
-                <p class="game-price">$1059.99</p>
-                <div class="game-stars">
-                    <i class="bi bi-star-half"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
                     <i class="bi bi-star"></i>
                 </div>
             </div>
@@ -187,9 +131,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div>   
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, minima nemo id tempora explicabo distinctio eligendi a ex, veniam odit accusantium dolorum? Sunt quod molestiae ut quos nihil magnam voluptate.</p>
-    {{juegos}}
 </div>

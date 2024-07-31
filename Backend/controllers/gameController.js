@@ -1,4 +1,6 @@
 const Game = require('../models/game');
+let fs = require('fs');
+let path = require('path');
 
 
 let controller = {
@@ -32,7 +34,27 @@ let controller = {
         } catch (error) {
             return res.status(500).send({ message: "Error al devolver el juego", error: error.message });
         }
+    },
+
+    //Ver imagen
+    getImagen: async function (req,res){
+        try {
+            let file = req.params.imagen;
+            let path_file="./uploads/"+file;
+            let exists=await fs.promises.access(path_file)
+            .then(()=>true) 
+            .catch(()=>false);
+            
+            if(exists){
+                return res.sendFile(path.resolve(path_file));
+            }else{
+                return res.status(200).send({message:"La imagen no existe"})
+            }            
+        } catch (error) {
+            return res.status(500).send({ message: "Error al devolver la portada del juego", error: error.message });
+        }
     }
+
 }
 
 module.exports = controller;
