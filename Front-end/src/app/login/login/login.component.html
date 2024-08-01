@@ -1,0 +1,15 @@
+<div class="login-container">
+    <h2>Inicia sesión</h2>
+    <form>
+      <div>
+        <input formControlName="username" placeholder="Correo electrónico o nombre de usuario">
+      </div>
+      <div>
+        <input type="password" formControlName="password" placeholder="Contraseña">
+      </div>
+      <button type="button" (click)="iniciar();">Iniciar sesión</button>
+    </form>
+    <br>
+    <p>¿Primera vez en softTech? <a (click)="crear();">Regístrate ahora.</a></p>
+  </div>
+  

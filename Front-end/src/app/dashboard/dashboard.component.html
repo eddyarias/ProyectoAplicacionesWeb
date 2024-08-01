@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="header-top">
+      <span>¿Necesitas ayuda? Llama al 999999999999</span>
+      <div class="social-icons">
+        <button aria-label="Example icon-button for Location"><i class="fas fa-map-marker-alt"></i></button>
+        <button aria-label="Example icon-button for Google"><i class="fab fa-google"></i></button>
+        <button aria-label="Example icon-button for Facebook"><i class="fab fa-facebook"></i></button>
+        <button aria-label="Example icon-button for WhatsApp"><i class="fab fa-whatsapp"></i></button>
+        <button aria-label="Example icon-button for Shopping"><i class="fas fa-shopping-cart"></i></button>
+      </div>
+    </div>
+    <div class="header-main">
+      <img src="logo.png" alt="SoftTech Logo" class="logo">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar un video juego">
+        <button>Buscar</button>
+      </div>
+      <div class="user-actions">
+        <button routerLink="/log/login/iniciar"><i class="fas fa-user icon"></i>Iniciar</button>
+        <button routerLink="/log/login/create"><i class="fas fa-heart icon"></i> Registrarse</button>
+        <button routerLink="/paginas/inicios/carrito"><i class="fas fa-shopping-cart icon"></i>Carrito</button>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <!-- <button class="nav-button">Buscar categorías <i class="fas fa-chevron-down"></i></button> -->
+      <a routerLink="/paginas/inicios/inicio">Inicio</a>
+      <a routerLink="/paginas/inicios/productos">Productos</a>
+      <!-- <a routerLink="inicios/filtrar">Categorías</a> -->
+    </nav>
+  </header>
+ 
+  <!-- CONTENIDO -->
+  <mat-drawer-container class="example-container">
+    <mat-drawer-content>
+      Main content
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-section">
+      <div class="footer-logo">
+        <img src="../assets/logosPng/logo.png" alt="SoftTech Logo">
+        <p>Encuentranos en</p>
+      </div>
+      <div class="footer-social">
+        <i class="fab fa-google"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-whatsapp"></i>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h4>Contactanos</h4>
+      <ul>
+        <li>Brownze arnold</li>
+        <li>Chronograph blue</li>
+        <li>Smart phones</li>
+        <li>Automatic watch</li>
+        <li>Hair straighteners</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Servicio al cliente</h4>
+      <ul>
+        <li>About us</li>
+        <li>Contact us</li>
+        <li>Return policy</li>
+        <li>Privacy policy</li>
+        <li>Payment policy</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Información</h4>
+      <ul>
+        <li>News</li>
+        <li>Service</li>
+        <li>Our policy</li>
+        <li>Customer care</li>
+        <li>Faq's</li>
+      </ul>
+    </div>
+  </div>
+  
+</body>
+</html>
