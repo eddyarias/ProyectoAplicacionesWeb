@@ -5,15 +5,16 @@
         <p class="mb-0">¿Necesitas ayuda? Llama al 099999999999</p>
       </div>
       <div class="col-6 text-right">
-        <img src="assets/logosPng/softtech-facebook.png" alt="Icon 1" class="img-fluid header-icon animate__animated animate__fadeIn">
-        <img src="assets/logosPng/softtech-instagram.png" alt="Icon 2" class="img-fluid header-icon animate__animated animate__fadeIn animate__delay-1s">
-        <img src="assets/logosPng/softtech-linkedin.png" alt="Icon 3" class="img-fluid header-icon animate__animated animate__fadeIn animate__delay-2s">
+        <a href="https://www.facebook.com/fisepn" target="_blank"> <img src="assets/logosPng/softtech-facebook.png" alt="Icon 1" class="img-fluid header-icon animate__animated animate__fadeIn"></a>
+        <a href="https://www.instagram.com/fis_epn_ec/" target="_blank"> <img src="assets/logosPng/softtech-instagram.png" alt="Icon 2" class="img-fluid header-icon animate__animated animate__fadeIn animate__delay-1s"></a>
+        <a href="https://www.linkedin.com/in/eddy-santiago-arias-sarango-a001ba287" target="_blank"> <img src="assets/logosPng/softtech-linkedin.png" alt="Icon 3" class="img-fluid header-icon animate__animated animate__fadeIn animate__delay-2s"></a>
       </div>
     </div>
     <div class="row align-items-center py-3">
-      <div class="col-3">
-        <img src="assets/logosPng/logo.png" alt="Logo" class="img-fluid logo animate__animated animate__bounceIn">
-      </div>
+        <div class="col-3">
+          <a [routerLink]="['/home']"><img src="assets/logosPng/logo.png" alt="Logo" class="img-fluid logo animate__animated animate__bounceIn">      </a>
+          
+        </div>
       <div class="col-6">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Buscar un video juego">
@@ -23,15 +24,15 @@
         </div>
       </div>
       <div class="col-3 text-right">
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/login']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-sign-in-alt fa-2x"></i>
-          <span>Iniciar</span>
+          <span>Iniciar Sesion</span>
         </a>
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/register']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-user-plus fa-2x"></i>
           <span>Registrarse</span>
         </a>
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/cart']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-shopping-cart fa-2x"></i>
           <span>Carrito</span>
         </a>
@@ -40,9 +41,9 @@
     <div class="row bg-secondary py-2">
       <div class="col text-center">
         <button class="btn btn-warning animate__animated animate__pulse animate__infinite">Buscar categorías</button>
-        <a href="/Front-end/src/app/components/encabezado/encabezado.component.html" class="text-white mx-3">Inicio</a>
-        <a href="#" class="text-white mx-3">Consola</a>
-        <a href="#" class="text-white mx-3">Categorías</a>
+        <a [routerLink]="['/home']" class="text-white mx-3">Inicio</a>
+        <a [routerLink]="['/navegacion']" class="text-white mx-3">Consola</a>
+        <a [routerLink]="['/navegacion']" class="text-white mx-3">Categorías</a>
       </div>
     </div>
   </div>

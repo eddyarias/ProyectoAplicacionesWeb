@@ -23,6 +23,11 @@
       "dom"
     ]
   },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "src/main.server.ts"  // Asegúrate de que esto esté aquí para excluirlo
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

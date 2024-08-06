@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { InicioModule } from './inicio/inicio.module';
-
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet, 
-    DashboardModule,
-    InicioModule,
-    ],
-  
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'APPWEB';
+  title = 'Front-end';
+  products = [
+    { name: 'Producto 1', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 2', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 3', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 4', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 5', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 6', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 7', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 8', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 9', image: 'https://via.placeholder.com/150' },
+    { name: 'Producto 10', image: 'https://via.placeholder.com/150' }
+  ];
 }

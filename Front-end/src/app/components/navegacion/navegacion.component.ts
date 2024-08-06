@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
 @Component({
   selector: 'app-navegacion',
-  standalone: true,
-  imports: [CommonModule, FormsModule], // Asegurarse de que FormsModule esté en los imports
   templateUrl: './navegacion.component.html',
   styleUrls: ['./navegacion.component.css']
 })
