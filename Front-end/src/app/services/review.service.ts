@@ -16,11 +16,13 @@ export class ReviewService{
     //Ver todas las resenias
     getReviews():Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'resenia');
+        return this._http.get(this.url + 'get-reviews',{headers:headers});
     }
 
     //Ver todas las resenias de un juego
-    getGameReviews(){
+    getGameReviews(id:string):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'get-game-reviews/'+id, {headers:headers})
 
     }
 }

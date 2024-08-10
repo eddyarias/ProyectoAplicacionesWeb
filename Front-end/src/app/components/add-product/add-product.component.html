@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="mt-2 mb-4">
-                    <p>Solo queda 46 en stock</p>
+                    <p>Solo queda {{juego.stock}} en stock</p>
                 </div>
                 <hr>
             </div>
@@ -60,22 +60,24 @@
 
     <div class="row justify-content-center">
         <div class="d-flex justify-content-center"> <!-- Descripcion y reseñas -->
-            <button class="boton mx-2">Descripción</button>
-            <button class="boton mx-2">Reseñas</button>
+            <button class="boton mx-2" [ngClass]="{'activo':botonSeleccionado === 'descripcion'}" (click)="mostrarDescripcion()">Descripción</button>
+            <button class="boton mx-2" [ngClass]="{'activo':botonSeleccionado === 'reviews'}"   (click)="mostrarReviews()">Reseñas</button>
         </div> 
-        <div class="contenedor m-5">
-            <div class="contenedor-txt p-3 m-5">
+        <div class="contenedor-desc-rese m-5 ">
+            <!-- Descripcion -->
+            <div class="contenedor-txt p-3 m-5" *ngIf='mostrarDescripcionSection'>
                 <p> {{juego.descripcion}} </p>
             </div>
-            <div>
+            <!-- Reseñas -->
+            <div *ngIf="mostrarReviewsSection">
                 <ul>
-                    <li>
+                    <li *ngFor="let review of gameReviews">
                         <div class="contenedor m-5">
                             <div class="d-flex justify-content-center align-items-center p-3">
                                 <div class="imagen-circular mr-3">
                                     <img src="https://dthezntil550i.cloudfront.net/f4/latest/f41908291942413280009640715/1280_960/1b2d9510-d66d-43a2-971a-cfcbb600e7fe.png" alt=""> 
                                 </div>
-                                <p class="subtitulo mb-0">Juan Perez</p>
+                                <p class="subtitulo mb-0"> {{review.userName}} </p>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <i class="bi bi-star-fill star"></i>
@@ -85,27 +87,7 @@
                                 <i class="bi bi-star-fill star"></i>                                
                             </div>
                             <div class="contenedor-txt p-3 mx-5 mb-3 mt-3">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At facilis architecto tempora adipisci neque aperiam cupiditate rem asperiores perferendis, ex sunt voluptatum deleniti, repellat ab officia sit tempore ipsam molestiae. </p>
-                            </div>                           
-                        </div>
-                    </li>
-                    <li>
-                        <div class="contenedor m-5">
-                            <div class="d-flex justify-content-center align-items-center p-3">
-                                <div class="imagen-circular mr-3">
-                                    <img src="https://dthezntil550i.cloudfront.net/f4/latest/f41908291942413280009640715/1280_960/1b2d9510-d66d-43a2-971a-cfcbb600e7fe.png" alt=""> 
-                                </div>
-                                <p class="subtitulo mb-0">Juan Perez</p>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <i class="bi bi-star-fill star"></i>
-                                <i class="bi bi-star-fill star"></i>
-                                <i class="bi bi-star-fill star"></i>
-                                <i class="bi bi-star-fill star"></i>
-                                <i class="bi bi-star-fill star"></i>                                
-                            </div>
-                            <div class="contenedor-txt p-3 mx-5 mb-3 mt-3">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At facilis architecto tempora adipisci neque aperiam cupiditate rem asperiores perferendis, ex sunt voluptatum deleniti, repellat ab officia sit tempore ipsam molestiae. </p>
+                                <p> {{review.comentario}} </p>
                             </div>                           
                         </div>
                     </li>

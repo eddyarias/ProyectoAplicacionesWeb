@@ -67,18 +67,30 @@
     background-color: #e2f4ff;
 }
 
+.contenedor-desc-rese{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width:  1114px; 
+    height: 300px;    
+    overflow-y: scroll;
+}
+
 .boton{
-    border: 1px solid #8f8f8f;
+    border: 1px solid #0a0a0a;
     border-radius: 20px;
     background-color: white;
     font-weight: 500;
     padding: 15px 45px;
     cursor: pointer;
-    transition: background-color 0.1s, color 0.1s;
+    transition: box-shadow 0.1s, color 0.3s, background-color 0.3s;
 }
 
-.boton:hover{
-    background-color: black;
+.boton:hover{   
+    box-shadow: 0 0 0 0.5px #0a0a0a; /* Sombra que actúa como borde */
+}
+
+.boton:active, .boton.activo {
+    background-color: #0a0a0a;
     color: white;
 }
 

@@ -4,26 +4,40 @@ import { JuegoService } from '../../services/juego.service';
 import { Global } from '../../services/global';
 import { ActivatedRoute} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { Review } from '../../modules/review';
+import { ReviewService } from '../../services/review.service';
+import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, CommonModule ],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css',
-  providers: [JuegoService]
+  providers: [JuegoService, ReviewService, UserService]
 })
 export class AddProductComponent implements OnInit{
   public url:string;
   public juego: Juego;
+  public gameReviews: Review[];
+  public mostrarDescripcionSection: boolean;
+  public mostrarReviewsSection: boolean;
+  public botonSeleccionado:string;
 
 
   constructor(
     private _juegoService:JuegoService,
+    private _reviewService: ReviewService,
+    private _userService: UserService,
     private _route:ActivatedRoute
   ){
     this.url=Global.url;
     this.juego=new Juego('',1,'','',1,1,'');
+    this.gameReviews = [];
+    this.mostrarDescripcionSection = true;
+    this.mostrarReviewsSection = false;
+    this.botonSeleccionado = 'descripcion';
   }
 
   ngOnInit(): void {
@@ -31,6 +45,7 @@ export class AddProductComponent implements OnInit{
       params=>{
         let id = params['id']; //obetener el id de la url
         this.getJuego(id);
+        this.getGameReviews(id);
       }
     )
   }
@@ -46,6 +61,42 @@ export class AddProductComponent implements OnInit{
     )
   }
 
+  getGameReviews(id: string){
+    this._reviewService.getGameReviews(id).subscribe(
+      response => {
+        if(response.reviews){
+          this.gameReviews = response.reviews;
 
+          // Recorrer cada reseña para obtener la información del usuario
+          this.gameReviews.forEach( review => {
+            this._userService.getUser(review.user_id.toString()).subscribe(
+              response => {
+                review['userName'] = response.user.nombre;
+                review['userImage'] = response.user.imagen;              
+              },
+              error => {
+                console.log(error);
+              }
+            )
+          })
 
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  mostrarDescripcion(){
+    this.mostrarDescripcionSection = true;
+    this.mostrarReviewsSection = false;
+    this.botonSeleccionado = 'descripcion'
+  }
+
+  mostrarReviews(){
+    this.mostrarDescripcionSection = false;
+    this.mostrarReviewsSection = true;
+    this.botonSeleccionado = 'reviews'
+  }
 }
