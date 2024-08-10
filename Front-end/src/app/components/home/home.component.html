@@ -19,18 +19,20 @@
     <h2>Videojuegos populares</h2>
     <div class="row m-2">
         <div class="col-md-3 mb-4" *ngFor="let juego of juegosPopulares ">
-            <div class="popular-game">
-                <img class="game-image" src="{{url+'get-imagen/'+juego.imagen}}" alt="Juego 1">
-                <h4 class="game-title"> {{juego.nombre}} </h4>
-                <p class="game-price"> {{juego.precio}} </p>
-                <div class="game-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
+            <a [routerLink]="['/juego',juego.id]">
+                <div class="popular-game">
+                    <img class="game-image" src="{{url+'get-imagen/'+juego.imagen}}" alt="Juego 1">
+                    <h4 class="game-title"> {{juego.nombre}} </h4>
+                    <p class="game-price"> {{juego.precio}} </p>
+                    <div class="game-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

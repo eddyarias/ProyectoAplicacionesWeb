@@ -3,11 +3,13 @@ import { JuegoService } from '../../services/juego.service';
 import { Juego } from '../../modules/juego';
 import { Global } from '../../services/global';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule  ],
+  imports: [CommonModule, HttpClientModule, RouterModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   providers: [JuegoService]

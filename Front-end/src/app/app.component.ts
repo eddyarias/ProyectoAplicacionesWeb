@@ -12,9 +12,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { NavegacionComponent  } from './components/navegacion/navegacion.component';
 
 
-import { FormsModule } from '@angular/forms'; // Importar FormsModule si no está ya importado
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -29,9 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
             HomeComponent,
             ReviewComponent,
             PaymentComponent, 
-            NavegacionComponent,
-            FormsModule,
-            HttpClientModule], 
+            NavegacionComponent], 
+            
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,3 +1,5 @@
+<H1>It is working</H1>
+
 <!-- Parte imagen + cuadros de texto -->
 <div class="container">
     <div class="row mt-5 mb-4"> 
@@ -9,8 +11,8 @@
         
         <div class="col-md-6">
             <div class="mt-4"> <!--titulo - stock -->
-                <h2>Good of war Standar edition</h2>
-                <p class="precio mb-0">$11,70</p>
+                <h2> {{juego.nombre}} </h2>
+                <p class="precio mb-0"> {{juego.precio}} </p>
                 <div class="row mt-2">
                     <div class="col-md-5 pr-0 contenedor-estrellas">
                         <i class="bi bi-star mainStar"></i>
@@ -23,7 +25,7 @@
                         <p class="small font-weight-bold mb-0">1 Reseña</p>
                     </div>
                 </div>
-                <div class="row mt-2">
+                <div class="row mt-2">  
                     <div class="col-md-3 d-flex align-items-center">
                         <p class="subtitulo mb-0">Disponibilidad: </p>
                     </div>
@@ -63,10 +65,7 @@
         </div> 
         <div class="contenedor m-5">
             <div class="contenedor-txt p-3 m-5">
-                <p>Kratos vuelve a ser padre. Como mentor y protector de Atreus, un hijo determinado a ganarse el respeto de su padre, se ve obligado a contener la ira que durante tanto tiempo lo ha caracterizado mientras recorre un mundo lleno de peligros junto a su muchacho.</p>
-                <p>Tras cobrarse venganza de los dioses del Olimpo, Kratos ahora vive en el reino de las deidades y los monstruos nórdicos.</p>
-                <p>En este mundo hostil y despiadado, debe luchar por sobrevivir y enseñarle a su hijo a hacer lo mismo… pero sin repetir los errores que mancharon de sangre las manos del Fantasma de Esparta.</p>
-                <p>Esta impactante reinvención de God of War toma todos los aspectos clásicos de la emblemática serie: un combate brutal, épicas luchas de jefes y una escala espectacular, y los combina con una increíble y emotiva trama que redefine el mundo de Kratos. </p>
+                <p> {{juego.descripcion}} </p>
             </div>
             <div>
                 <ul>
