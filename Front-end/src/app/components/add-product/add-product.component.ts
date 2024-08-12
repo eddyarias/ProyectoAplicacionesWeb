@@ -99,4 +99,32 @@ export class AddProductComponent implements OnInit{
     this.mostrarReviewsSection = true;
     this.botonSeleccionado = 'reviews'
   }
+
+  promedioRating(): number{
+    let gameRating = 0;
+    let aux = 0;
+
+    if(this.gameReviews.length == 0) return 0;
+
+    this.gameReviews.forEach( review => {
+      gameRating += review.rating;
+      aux++; 
+    })
+    console.log("jsofjlas");
+    console.log(gameRating/aux);
+    return gameRating/aux;
+  }
+
+  getGameStarData(){
+    const rating = this.promedioRating();
+    const fullStar = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const emptyStar = 5 - fullStar - ( halfStar ? 1:0);
+
+    return{
+      fullStar,
+      halfStar,
+      emptyStar
+    }
+  }
 }
