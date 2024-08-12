@@ -6,7 +6,6 @@ var controller = {
         try {
             var params = req.body;
             var user = new User();
-            user.id = params.id;
             user.nombre = params.nombre;
             user.email = params.email;
             user.password = params.password;
@@ -40,7 +39,7 @@ var controller = {
         try {
             var userId = req.params.id;
             if (!userId) return res.status(400).send({ message: "El ID del usuario es requerido" });
-            var user = await User.findOne({ id: userId });
+            var user = await User.findById(userId);
             if (!user) return res.status(404).send({ message: "Usuario no encontrado" });
             return res.status(200).send({ user });
         } catch (error) {

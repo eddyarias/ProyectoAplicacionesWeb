@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 const gameSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+
     nombre: {
         type: String,
         required:true,
@@ -29,7 +25,27 @@ const gameSchema = new mongoose.Schema({
             validator: Number.isInteger,
             message: 'El stock debe ser un número entero'
         }
-
+    },
+    sku: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+    rating: {
+        type: Number,
+        required: true
+    },
+    plataforma: {
+        type: String,
+        required: true
+    },
+    genero: {
+        type: String,
+        required: true
+    },
+    portada: {
+        type: String,
+        required: true
     }
 });
 

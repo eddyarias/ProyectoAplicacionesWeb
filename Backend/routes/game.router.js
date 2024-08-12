@@ -12,6 +12,9 @@ router.get('/get-juego/:id', gameController.getGame);
 // Ruta para obtenere imagen del juego
 router.get('/get-imagen/:imagen', gameController.getImagen);
 
+// Ruta para obtener juegos segun su plataforma y genero
+router.get('/get-juegos-por-filtros', gameController.getGamesByFilters);
+
 
 
 

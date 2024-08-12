@@ -13,9 +13,9 @@
                 <p class="precio mb-0"> {{juego.precio}} </p>
                 <div class="row mt-2">
                     <div class="col-md-4 pr-0 contenedor-game-estrellas">
-                        <i *ngFor="let star of [].constructor(getGameStarData().fullStar)" class="bi bi-star-fill"></i>
-                        <i *ngIf="getGameStarData().halfStar" class="bi bi-star-half"></i>
-                        <i *ngFor="let star of [].constructor(getGameStarData().emptyStar)" class="bi bi-star"></i>           
+                        <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).fullStar)" class="bi bi-star-fill"></i>
+                        <i *ngIf="getGameStarData(juego.rating).halfStar" class="bi bi-star-half"></i>
+                        <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).emptyStar)" class="bi bi-star"></i>           
                     </div>
                     <div class="col-md-auto ml-0 pl-0 d-flex align-items-center"> 
                         <p class="small font-weight-bold  pl-2 mb-0"> {{gameReviews.length}} Reseña</p>
@@ -41,10 +41,10 @@
             </div>
             <div class="mt-4"> <!--Caracteristicas -->
                 <div>
-                    <p> <span class="subtitulo">Sku:</span> {{juego.id}} </p>
+                    <p> <span class="subtitulo">Sku:</span> {{juego.sku}} </p>
                 </div>
                 <div>
-                    <p><span class="subtitulo">Categoría:</span> PS4 40% Ficción</p>
+                    <p><span class="subtitulo">Categoría:</span> {{juego.plataforma}} - {{juego.genero}} </p>
                 </div>
                 <div>
                     <p class="subtitulo">Compartir: </p>
@@ -102,61 +102,19 @@
         <h3>Productos relacionados</h3>
     </div>
     <div class="row m-2">
-        <div class="col-md-3">
-            <div class="cuadro-producto">
-                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
-                <h4>Good of war Standar edition</h4>
-                <p>$11,70</p>
-                <div class="contenedor-estrellas">
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>                                
+        <div *ngFor="let juego of juegosRelacionados" class="col-md-3">
+            <a [routerLink] = "['/juego',juego._id]">
+                <div class="cuadro-producto">
+                    <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
+                    <h4> {{juego.nombre}} </h4>
+                    <p> {{juego.precio}} </p>
+                    <div>
+                        <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).fullStar)" class="bi bi-star-fill goldStar"></i>
+                        <i *ngIf="getGameStarData(juego.rating).halfStar" class="bi bi-star-half goldStar"></i>
+                        <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).emptyStar)" class="bi bi-star goldStar"></i>                             
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="cuadro-producto">
-                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
-                <h4>Good of war Standar edition</h4>
-                <p>$11,70</p>
-                <div class="contenedor-estrellas">
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>                                
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="cuadro-producto">
-                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
-                <h4>Good of war Standar edition</h4>
-                <p>$11,70</p>
-                <div class="contenedor-estrellas">
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>                                
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="cuadro-producto">
-                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
-                <h4>Good of war Standar edition</h4>
-                <p>$11,70</p>
-                <div class="contenedor-estrellas">
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>
-                    <i class="bi bi-star-fill star"></i>                                
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

@@ -1,19 +1,9 @@
 const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
-
-    user_id: {
-        type: Number,
-        required: true
-    },
     
     producto_id: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         unique: true
     },
@@ -25,6 +15,10 @@ const reviewSchema = new mongoose.Schema({
 
     rating: {
         type: Number,
+        required: true
+    },
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     }
 })

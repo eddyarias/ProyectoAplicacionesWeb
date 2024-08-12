@@ -24,5 +24,9 @@ export class JuegoService{
         return this._http.get(this.url+'get-juego/'+id, {headers:headers});
     }
 
+    getGamesByFilter(filtro:string):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url+'get-juegos-por-filtros?'+filtro, {headers:headers})
+    }
     
 }

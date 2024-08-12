@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Juego } from '../../modules/juego';
 import { JuegoService } from '../../services/juego.service';
 import { Global } from '../../services/global';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Review } from '../../modules/review';
 import { ReviewService } from '../../services/review.service';
@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [HttpClientModule, CommonModule ],
+  imports: [HttpClientModule, CommonModule, RouterModule ],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css',
   providers: [JuegoService, ReviewService, UserService]
@@ -24,6 +24,7 @@ export class AddProductComponent implements OnInit{
   public mostrarDescripcionSection: boolean;
   public mostrarReviewsSection: boolean;
   public botonSeleccionado:string;
+  public juegosRelacionados: Juego[];
 
 
   constructor(
@@ -33,14 +34,17 @@ export class AddProductComponent implements OnInit{
     private _route:ActivatedRoute
   ){
     this.url=Global.url;
-    this.juego=new Juego('',1,'','',1,1,'');
+    this.juego=new Juego('', '','',1,1,1,1,'','','');
     this.gameReviews = [];
     this.mostrarDescripcionSection = true;
     this.mostrarReviewsSection = false;
     this.botonSeleccionado = 'descripcion';
+    this.juegosRelacionados = [];
   }
 
   ngOnInit(): void {
+    let string = "";
+
     this._route.params.subscribe(
       params=>{
         let id = params['id']; //obetener el id de la url
@@ -48,6 +52,10 @@ export class AddProductComponent implements OnInit{
         this.getGameReviews(id);
       }
     )
+    string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
+    this.getJuegosRelacionado(string);
+
+
   }
 
   getJuego(id:string){
@@ -69,7 +77,7 @@ export class AddProductComponent implements OnInit{
 
           // Recorrer cada reseña para obtener la información del usuario
           this.gameReviews.forEach( review => {
-            this._userService.getUser(review.user_id.toString()).subscribe(
+            this._userService.getUser(review.user_id).subscribe(
               response => {
                 review['userName'] = response.user.nombre;
                 review['userImage'] = response.user.imagen;              
@@ -88,6 +96,18 @@ export class AddProductComponent implements OnInit{
     )
   }
 
+  getJuegosRelacionado(filtro: string){
+    this._juegoService.getGamesByFilter(filtro).subscribe(
+      response => {
+        this.juegosRelacionados = response.games
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+  }
+
   mostrarDescripcion(){
     this.mostrarDescripcionSection = true;
     this.mostrarReviewsSection = false;
@@ -100,23 +120,7 @@ export class AddProductComponent implements OnInit{
     this.botonSeleccionado = 'reviews'
   }
 
-  promedioRating(): number{
-    let gameRating = 0;
-    let aux = 0;
-
-    if(this.gameReviews.length == 0) return 0;
-
-    this.gameReviews.forEach( review => {
-      gameRating += review.rating;
-      aux++; 
-    })
-    console.log("jsofjlas");
-    console.log(gameRating/aux);
-    return gameRating/aux;
-  }
-
-  getGameStarData(){
-    const rating = this.promedioRating();
+  getGameStarData(rating:number){
     const fullStar = Math.floor(rating);
     const halfStar = rating % 1 !== 0;
     const emptyStar = 5 - fullStar - ( halfStar ? 1:0);
@@ -128,3 +132,5 @@ export class AddProductComponent implements OnInit{
     }
   }
 }
+
+
