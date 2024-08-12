@@ -66,69 +66,22 @@
 <div class="reviews-container">
     <h2>Reseñas de Usuarios</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div *ngFor="let review of reviews" class="col-md-4">
             <div class="review">
                 <div class="user-info">
                     <div class="user-photo">
                         <img src="http://surl.li/bqbuec" alt="Foto de Usuario">
                     </div>
                     <div class="user-name">
-                        <h4>Nombre de Usuario</h4>
+                        <h4> {{review.userName}} </h4>
                     </div>
                 </div>
                 <div class="user-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
+                    <i *ngFor="let star of [].constructor(review.rating)"  class="bi bi-star-fill goldStar"></i>
+                    <i *ngFor="let star of [].constructor(5-review.rating)" class="bi bi-star-fill grayStar"></i>         
                 </div>
                 <p class="user-review">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tortor nulla.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="review">
-                <div class="user-info">
-                    <div class="user-photo">
-                        <img src="http://surl.li/bqbuec" alt="Foto de Usuario">
-                    </div>
-                    <div class="user-name">
-                        <h4>Nombre de Usuario</h4>
-                    </div>
-                </div>
-                <div class="user-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                </div>
-                <p class="user-review">
-                    Integer in bibendum dolor. Nunc lacinia pulvinar lectus in efficitur.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="review">
-                <div class="user-info">
-                    <div class="user-photo">
-                        <img src="http://surl.li/bqbuec" alt="Foto de Usuario">
-                    </div>
-                    <div class="user-name">
-                        <h4>Nombre de Usuario</h4>
-                    </div>
-                </div>
-                <div class="user-rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                </div>
-                <p class="user-review">
-                    Duis auctor lectus ut libero congue, id semper dui laoreet.
                 </p>
             </div>
         </div>

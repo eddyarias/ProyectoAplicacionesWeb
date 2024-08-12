@@ -171,12 +171,19 @@
 
 .user-rating {
     margin-bottom: 10px;
+    font-size: 24px;
 }
 
-.user-rating i {
-    font-size: 24px;
+.goldStar {
+    
     color: gold;
 }
+
+.grayStar{
+    color: gray;   
+}
+
+
 
 .user-review {
     font-size: 16px;
