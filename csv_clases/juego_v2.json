@@ -1,0 +1,216 @@
+[{
+  "_id": {
+    "$oid": "66a2ac505f0f28e342f6e609"
+  },
+  "nombre": "The Legend of Zelda: Breath of the Wild",
+  "descripcion": "En este juego, los jugadores explorarán un vasto mundo abierto lleno de secretos, peligros y maravillas. Con una jugabilidad innovadora y un enfoque en la libertad del jugador, es uno de los títulos más aclamados de la serie Zelda.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 0,
+  "sku": 113399,
+  "rating": {
+    "$numberDecimal": "3"
+  },
+  "plataforma": "Nintendo Switch",
+  "genero": "Aventura",
+  "portada": "4PjoCSqGroPxcYBlUJvA_VgA.png"
+},
+{
+  "_id": {
+    "$oid": "66a3ad507f0f28e342f6e610"
+  },
+  "nombre": "Red Dead Redemption 2",
+  "descripcion": "Una épica historia del oeste, donde los jugadores toman el papel de Arthur Morgan, un forajido que lucha por sobrevivir en los últimos días del salvaje oeste.",
+  "precio": {
+    "$numberDecimal": "49.99"
+  },
+  "stock": 12,
+  "sku": 113400,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "PlayStation 4",
+  "genero": "Acción y aventura",
+  "portada": "5RjoDSqGroPxcYBlUJvB_VgB.png"
+},
+{
+  "_id": {
+    "$oid": "66a4be608f0f28e342f6e611"
+  },
+  "nombre": "The Witcher 3: Wild Hunt",
+  "descripcion": "Una historia épica de un cazador de monstruos que busca a su hija adoptiva en un mundo lleno de guerras, magia y criaturas fantásticas.",
+  "precio": {
+    "$numberDecimal": "39.99"
+  },
+  "stock": 20,
+  "sku": 113401,
+  "rating": {
+    "$numberDecimal": "5"
+  },
+  "plataforma": "PC",
+  "genero": "RPG",
+  "portada": "6SjoETqGroPxcYBlUJvC_VgC.png"
+},
+{
+  "_id": {
+    "$oid": "66a5cf709f0f28e342f6e612"
+  },
+  "nombre": "Super Mario Odyssey",
+  "descripcion": "Una aventura colorida donde Mario explora varios mundos para rescatar a la Princesa Peach de las garras de Bowser.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 5,
+  "sku": 113402,
+  "rating": {
+    "$numberDecimal": "4"
+  },
+  "plataforma": "Nintendo Switch",
+  "genero": "Plataformas",
+  "portada": "7TjoFTqGroPxcYBlUJvD_VgD.png"
+},
+{
+  "_id": {
+    "$oid": "66a6e0809f0f28e342f6e613"
+  },
+  "nombre": "Cyberpunk 2077",
+  "descripcion": "Un RPG futurista donde los jugadores exploran la ciudad de Night City, una metrópolis llena de ciberimplantes, delincuencia y oportunidades.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 30,
+  "sku": 113403,
+  "rating": {
+    "$numberDecimal": "3.5"
+  },
+  "plataforma": "PC",
+  "genero": "RPG",
+  "portada": "8UjoGTqGroPxcYBlUJvE_VgE.png"
+},
+{
+  "_id": {
+    "$oid": "66a7f190af0f28e342f6e614"
+  },
+  "nombre": "God of War",
+  "descripcion": "Una reinvención del clásico juego, donde Kratos, ahora en tierras nórdicas, lucha junto a su hijo Atreus en una épica aventura.",
+  "precio": {
+    "$numberDecimal": "49.99"
+  },
+  "stock": 15,
+  "sku": 113404,
+  "rating": {
+    "$numberDecimal": "5"
+  },
+  "plataforma": "PlayStation 4",
+  "genero": "Acción y aventura",
+  "portada": "9VjoHTqGroPxcYBlUJvF_VgF.png"
+},
+{
+  "_id": {
+    "$oid": "66a8f2a0bf0f28e342f6e615"
+  },
+  "nombre": "Hades",
+  "descripcion": "Un juego de acción y aventura en el que los jugadores intentan escapar del inframundo griego, enfrentándose a enemigos poderosos y obteniendo habilidades divinas.",
+  "precio": {
+    "$numberDecimal": "24.99"
+  },
+  "stock": 40,
+  "sku": 113405,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "PC",
+  "genero": "Rogue-like",
+  "portada": "1WjoITqGroPxcYBlUJvG_VgG.png"
+},
+{
+  "_id": {
+    "$oid": "66a9f3b0cf0f28e342f6e616"
+  },
+  "nombre": "Animal Crossing: New Horizons",
+  "descripcion": "En esta simulación social, los jugadores desarrollan su propia isla, interactúan con adorables vecinos y personalizan su entorno.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 50,
+  "sku": 113406,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "Nintendo Switch",
+  "genero": "Simulación",
+  "portada": "2XjoJTqGroPxcYBlUJvH_VgH.png"
+},
+{
+  "_id": {
+    "$oid": "66aaf4c0df0f28e342f6e617"
+  },
+  "nombre": "Doom Eternal",
+  "descripcion": "Una frenética experiencia de disparos en primera persona donde los jugadores combaten hordas de demonios en un mundo lleno de acción y adrenalina.",
+  "precio": {
+    "$numberDecimal": "39.99"
+  },
+  "stock": 35,
+  "sku": 113407,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "PC",
+  "genero": "FPS",
+  "portada": "3YjoKTqGroPxcYBlUJvI_VgI.png"
+},
+{
+  "_id": {
+    "$oid": "66abf5d0ef0f28e342f6e618"
+  },
+  "nombre": "Sekiro: Shadows Die Twice",
+  "descripcion": "Un desafiante juego de acción donde los jugadores deben dominar el arte del combate con espadas para sobrevivir en el Japón feudal.",
+  "precio": {
+    "$numberDecimal": "49.99"
+  },
+  "stock": 25,
+  "sku": 113408,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "PlayStation 4",
+  "genero": "Acción y aventura",
+  "portada": "4ZjoLTqGroPxcYBlUJvJ_VgJ.png"
+},
+{
+  "_id": {
+    "$oid": "66acf6e0ff0f28e342f6e619"
+  },
+  "nombre": "Ghost of Tsushima",
+  "descripcion": "Un juego de mundo abierto ambientado en el Japón feudal, donde los jugadores asumen el rol de un samurái que lucha contra la invasión mongola.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 10,
+  "sku": 113409,
+  "rating": {
+    "$numberDecimal": "4.5"
+  },
+  "plataforma": "PlayStation 4",
+  "genero": "Acción y aventura",
+  "portada": "5AjoMTqGroPxcYBlUJvK_VgK.png"
+},
+{
+  "_id": {
+    "$oid": "66adf7f10f0f28e342f6e620"
+  },
+  "nombre": "Final Fantasy VII Remake",
+  "descripcion": "Una reimaginación del clásico JRPG donde los jugadores siguen a Cloud Strife y sus compañeros en una misión para salvar al mundo de Shinra y Sephiroth.",
+  "precio": {
+    "$numberDecimal": "59.99"
+  },
+  "stock": 18,
+  "sku": 113410,
+  "rating": {
+    "$numberDecimal": "4.33"
+  },
+  "plataforma": "PlayStation 4",
+  "genero": "JRPG",
+  "portada": "6BjoNTqGroPxcYBlUJvL_VgL.png"
+}]

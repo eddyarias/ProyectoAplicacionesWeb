@@ -1,0 +1,299 @@
+[{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5cd"
+  },
+  "producto_id": {
+    "$oid": "66a2ac505f0f28e342f6e609"
+  },
+  "comentario": "El mundo es impresionante y la libertad de exploración es increíble, pero algunas mecánicas pueden ser abrumadoras.",
+  "rating": 3,
+  "user_id": {
+    "$oid": "66b70b57831e003dfc20bd92"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5ce"
+  },
+  "producto_id": {
+    "$oid": "66a2ac505f0f28e342f6e609"
+  },
+  "comentario": "Me encanta la libertad que ofrece, pero a veces se siente repetitivo después de un tiempo.",
+  "rating": 3,
+  "user_id": {
+    "$oid": "66be70f8237e004dfe22ce94"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5cf"
+  },
+  "producto_id": {
+    "$oid": "66a3ad507f0f28e342f6e610"
+  },
+  "comentario": "Una experiencia cinematográfica excepcional, con una narrativa profunda y un mundo abierto impresionante.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66ba50e6025d1d006aa14930"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d0"
+  },
+  "producto_id": {
+    "$oid": "66a3ad507f0f28e342f6e610"
+  },
+  "comentario": "El detalle en el mundo y las misiones secundarias son sobresalientes, aunque algunos errores técnicos afectan la experiencia.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66bc60f7126e003cfb21bd93"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d1"
+  },
+  "producto_id": {
+    "$oid": "66a4be608f0f28e342f6e611"
+  },
+  "comentario": "Una obra maestra en términos de narrativa y diseño de mundo. La historia de Geralt es inolvidable.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66be70f8237e004dfe22ce94"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d2"
+  },
+  "producto_id": {
+    "$oid": "66a4be608f0f28e342f6e611"
+  },
+  "comentario": "Las misiones son variadas y el combate es emocionante, pero el juego puede volverse un poco repetitivo.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66c080f9348e005eff23df95"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d3"
+  },
+  "producto_id": {
+    "$oid": "66a5cf709f0f28e342f6e612"
+  },
+  "comentario": "Un viaje encantador y divertido, aunque algunas secciones pueden sentirse algo fáciles.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66b70b57831e003dfc20bd92"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d4"
+  },
+  "producto_id": {
+    "$oid": "66a5cf709f0f28e342f6e612"
+  },
+  "comentario": "El juego es visualmente impresionante y ofrece una experiencia divertida, pero el final es algo decepcionante.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66ba50e6025d1d006aa14930"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d5"
+  },
+  "producto_id": {
+    "$oid": "66a6e0809f0f28e342f6e613"
+  },
+  "comentario": "Una experiencia visualmente impresionante con una historia interesante, pero el rendimiento puede ser inconsistente.",
+  "rating": 3,
+  "user_id": {
+    "$oid": "66bc60f7126e003cfb21bd93"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d6"
+  },
+  "producto_id": {
+    "$oid": "66a6e0809f0f28e342f6e613"
+  },
+  "comentario": "El diseño del mundo es fantástico y el combate es intenso, pero el juego tiene algunos errores técnicos.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66be70f8237e004dfe22ce94"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d7"
+  },
+  "producto_id": {
+    "$oid": "66a7f190af0f28e342f6e614"
+  },
+  "comentario": "Una experiencia épica con una narrativa poderosa, pero algunos problemas con el ritmo pueden hacer que se sienta largo.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66c080f9348e005eff23df95"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d8"
+  },
+  "producto_id": {
+    "$oid": "66a7f190af0f28e342f6e614"
+  },
+  "comentario": "El juego ofrece un mundo rico y detallado, aunque el combate puede volverse repetitivo.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66b70b57831e003dfc20bd92"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5d9"
+  },
+  "producto_id": {
+    "$oid": "66a8f2a0bf0f28e342f6e615"
+  },
+  "comentario": "Un juego adictivo y bien diseñado, con un enfoque único en el combate y la progresión.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66ba50e6025d1d006aa14930"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5da"
+  },
+  "producto_id": {
+    "$oid": "66a8f2a0bf0f28e342f6e615"
+  },
+  "comentario": "El estilo de arte es encantador y el juego es divertido, pero la dificultad puede ser frustrante.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66bc60f7126e003cfb21bd93"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5db"
+  },
+  "producto_id": {
+    "$oid": "66a9f3b0cf0f28e342f6e616"
+  },
+  "comentario": "Un juego relajante y encantador con muchas actividades para disfrutar, aunque puede volverse monótono.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66be70f8237e004dfe22ce94"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5dc"
+  },
+  "producto_id": {
+    "$oid": "66a9f3b0cf0f28e342f6e616"
+  },
+  "comentario": "El juego es excelente para relajarse y escapar de la rutina, pero la falta de desafíos puede ser un problema.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66c080f9348e005eff23df95"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5dd"
+  },
+  "producto_id": {
+    "$oid": "66abf5d0ef0f28e342f6e618"
+  },
+  "comentario": "Una experiencia intensa y desafiante con un sistema de combate muy satisfactorio.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66b70b57831e003dfc20bd92"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5de"
+  },
+  "producto_id": {
+    "$oid": "66abf5d0ef0f28e342f6e618"
+  },
+  "comentario": "El juego es desafiante y gratificante, pero algunas áreas pueden ser frustrantes por su dificultad.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66ba50e6025d1d006aa14930"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5df"
+  },
+  "producto_id": {
+    "$oid": "66acf6e0ff0f28e342f6e619"
+  },
+  "comentario": "Un mundo abierto impresionante con un gran enfoque en el sigilo y la narrativa.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66bc60f7126e003cfb21bd93"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5e0"
+  },
+  "producto_id": {
+    "$oid": "66acf6e0ff0f28e342f6e619"
+  },
+  "comentario": "El juego ofrece una experiencia profunda y envolvente, aunque el ritmo puede ser lento en algunos momentos.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66be70f8237e004dfe22ce94"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5e1"
+  },
+  "producto_id": {
+    "$oid": "66adf7f10f0f28e342f6e620"
+  },
+  "comentario": "Una reimaginación impresionante de un clásico, con gráficos mejorados y una narrativa atrapante.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66b70b57831e003dfc20bd92"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5e2"
+  },
+  "producto_id": {
+    "$oid": "66adf7f10f0f28e342f6e620"
+  },
+  "comentario": "El juego logra capturar la esencia del original mientras introduce nuevas mecánicas que mejoran la experiencia.",
+  "rating": 4,
+  "user_id": {
+    "$oid": "66bc60f7126e003cfb21bd93"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6b1a2ad071cc4edd9a5e3"
+  },
+  "producto_id": {
+    "$oid": "66adf7f10f0f28e342f6e620"
+  },
+  "comentario": "Una excelente actualización del clásico, aunque algunos cambios pueden no ser del gusto de todos.",
+  "rating": 5,
+  "user_id": {
+    "$oid": "66c080f9348e005eff23df95"
+  }
+}]
