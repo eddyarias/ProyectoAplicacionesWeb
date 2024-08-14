@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { NgForm, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
-  // standalone: true,
-  // imports: [],
+  standalone: true,
+  imports: [FormsModule], 
   templateUrl: './create.component.html',
-  styleUrl: './create.component.scss'
+  styleUrls: ['./create.component.scss']
 })
 export class CreateComponent {
 
+  onSubmit(form: NgForm) {
+    console.log("Formulario enviado", form.value);
+  }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { InicioModule } from './inicio/inicio.module';
+import { CreateComponent } from './login/create/create.component';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { InicioModule } from './inicio/inicio.module';
     RouterOutlet, 
     DashboardModule,
     InicioModule,
+    CreateComponent
     ],
   
   templateUrl: './app.component.html',
