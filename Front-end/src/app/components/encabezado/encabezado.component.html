@@ -23,15 +23,15 @@
         </div>
       </div>
       <div class="col-3 text-right">
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/login']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-sign-in-alt fa-2x"></i>
           <span>Iniciar</span>
         </a>
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/register']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-user-plus fa-2x"></i>
           <span>Registrarse</span>
         </a>
-        <a href="#" class="text-white mx-2 d-inline-block text-center">
+        <a [routerLink]="['/cart']" class="text-white mx-2 d-inline-block text-center">
           <i class="fas fa-shopping-cart fa-2x"></i>
           <span>Carrito</span>
         </a>
@@ -40,9 +40,9 @@
     <div class="row bg-secondary py-2">
       <div class="col text-center">
         <button class="btn btn-warning animate__animated animate__pulse animate__infinite">Buscar categorías</button>
-        <a href="#" class="text-white mx-3">Inicio</a>
-        <a href="#" class="text-white mx-3">Consola</a>
-        <a href="#" class="text-white mx-3">Categorías</a>
+        <a [routerLink]="['/home']" class="text-white mx-3">Inicio</a>
+        <a [routerLink]="['/navegacion']"  class="text-white mx-3">Consola</a>
+        <a [routerLink]="['/navegacion']" class="text-white mx-3">Categorías</a>
       </div>
     </div>
   </div>
