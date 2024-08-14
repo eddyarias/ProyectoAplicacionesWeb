@@ -91,12 +91,9 @@
 
 .game-stars {
     margin-top: 10px;
-    color: rgb(34, 34, 34);
-}
-
-.game-stars .bi-star-fill {
     font-size: 18px;
 }
+
 
 .features-container {
     margin-top: 60px;

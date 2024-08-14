@@ -73,6 +73,18 @@ export class HomeComponent implements OnInit{
       }
     )
   }
+
+  getGameStarData(rating:number){
+    const fullStar = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const emptyStar = 5 - fullStar - ( halfStar ? 1:0);
+
+    return{
+      fullStar,
+      halfStar,
+      emptyStar
+    }
+  }
 }
 
 
