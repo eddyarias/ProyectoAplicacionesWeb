@@ -81,7 +81,7 @@ let controller = {
             let game = new Game();
             let params = req.body;
 
-            game.nombre = params.nombre;
+            game.nombre= params.nombre;
             game.descripcion = params.descripcion;
             game.precio = params.precio;
             game.stock = params.stock;
