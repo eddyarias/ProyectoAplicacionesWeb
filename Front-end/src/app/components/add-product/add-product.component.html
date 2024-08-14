@@ -102,12 +102,12 @@
         <h3>Productos relacionados</h3>
     </div>
     <div class="row m-2">
-        <div *ngFor="let juego of juegosRelacionados" class="col-md-3">
+        <div *ngFor="let juego of juegosRelacionados" class="col-md-3 ">
             <a [routerLink] = "['/juego',juego._id]">
                 <div class="cuadro-producto">
                     <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
-                    <h4> {{juego.nombre}} </h4>
-                    <p> {{juego.precio}} </p>
+                    <h4 class="game-title"> {{juego.nombre}} </h4>
+                    <p class="game-price"> {{juego.precio}} </p>
                     <div>
                         <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).fullStar)" class="bi bi-star-fill goldStar"></i>
                         <i *ngIf="getGameStarData(juego.rating).halfStar" class="bi bi-star-half goldStar"></i>

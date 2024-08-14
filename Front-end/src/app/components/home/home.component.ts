@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit{
   public url:string;
   public juegosPopulares:Juego[];
   public reviews:Review[];
+  //Para el carrusel
+  public indiceSlides:number;
+  public lanzamientosSlides: {src: string, alt:string}[]; //Array de objetos
 
   constructor(
     private _servicePelicula:JuegoService,
@@ -32,7 +35,13 @@ export class HomeComponent implements OnInit{
     this.url = Global.url;
     this.juegosPopulares = [];
     this.reviews = [];
-  }
+    this.indiceSlides = 0;
+    this.lanzamientosSlides = [ //las imagenes del carrusel
+      {src: "../../../assets/NuevosLanzamientos/AnimalCossing_Banner.jpg", alt:"Lanzamiento 1"},
+      {src: "../../../assets/NuevosLanzamientos/Mbz7A5Q.jpg", alt:"Lanzamiento 2"},
+      {src: "../../../assets/NuevosLanzamientos/ffviiremake_Z1SWc0A.jpg", alt:"Lanzamiento 3"}
+    ];
+  } 
   
   ngOnInit(): void {
     this.getGames();
@@ -83,6 +92,38 @@ export class HomeComponent implements OnInit{
       fullStar,
       halfStar,
       emptyStar
+    }
+  }
+
+  // prevSlide(){ //restamos uno al indice, pero si es cero pasa al ultimo 
+  //   this.indiceSlides = (this.indiceSlides > 0) ? this.indiceSlides - 1 : this.lanzamientosSlides.length - 1;
+  //   console.log(this.indiceSlides)
+  // }
+
+  // nextSlide(){
+  //   this.indiceSlides = (this.indiceSlides < this.lanzamientosSlides.length - 1) ? this.indiceSlides + 1: 0;
+  //   console.log(this.indiceSlides)
+
+  // }
+
+
+  nextSlide() {
+    const totalSlides = this.lanzamientosSlides.length;
+    this.indiceSlides = (this.indiceSlides + 1) % totalSlides;
+    this.updateBannerPosition();
+  }
+
+  prevSlide() {
+    const totalSlides = this.lanzamientosSlides.length;
+    this.indiceSlides = (this.indiceSlides - 1 + totalSlides) % totalSlides;
+    this.updateBannerPosition();
+  }
+
+  updateBannerPosition() {
+    const banner = document.querySelector('.banner') as HTMLElement;
+    if (banner) {
+      const slideWidth = banner.offsetWidth;
+      banner.style.transform = `translateX(-${this.indiceSlides * slideWidth}px)`;
     }
   }
 }

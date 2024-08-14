@@ -55,7 +55,6 @@ export class AddProductComponent implements OnInit{
     string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
     this.getJuegosRelacionado(string);
 
-
   }
 
   getJuego(id:string){
@@ -97,6 +96,7 @@ export class AddProductComponent implements OnInit{
   }
 
   getJuegosRelacionado(filtro: string){
+    console.log(filtro)
     this._juegoService.getGamesByFilter(filtro).subscribe(
       response => {
         this.juegosRelacionados = response.games

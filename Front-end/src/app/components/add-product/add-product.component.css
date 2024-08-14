@@ -124,7 +124,20 @@
     padding: 10px; /* espacio entre la imagen y el borde */
     box-sizing: border-box; 
     margin-bottom: 30px;
+    text-align: center;
 }
+
+.game-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.game-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+}
+
 
 ul, ol {
     list-style-type: none;

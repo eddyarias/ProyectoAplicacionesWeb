@@ -1,18 +1,12 @@
 <div class="banner-container">
     <div class="banner">
-        <div class="banner-slide">
-            <img src="https://www.gameinformer.com/sites/default/files/styles/full/public/2023/07/13/10d12f16/fc24_standardkeyart_16x9.jpg" alt="Lanzamiento 1">
-        </div>
-        <div class="banner-slide">
-            <img src="https://www.gameinformer.com/sites/default/files/styles/full/public/2023/07/13/10d12f16/fc24_standardkeyart_16x9.jpg" alt="Lanzamiento 2">
-        </div>
-        <div class="banner-slide">
-            <img src="https://www.gameinformer.com/sites/default/files/styles/full/public/2023/07/13/10d12f16/fc24_standardkeyart_16x9.jpg" alt="Lanzamiento 3">
+        <div class="banner-slide" *ngFor="let slide of lanzamientosSlides; let i = index" [ngClass]="{'activo': i === indiceSlides }">
+            <img src="{{slide.src}}" alt="{{slide.alt}}">
         </div>
     </div>
     <!--Colocar las funciones para hacer el movimiento del slide-->
-    <button class="banner-prev" onclick="">&#10094;</button>
-    <button class="banner-next" onclick="">&#10095;</button>
+    <button class="banner-prev" (click)="prevSlide()">&#10094;</button>
+    <button class="banner-next" (click)="nextSlide()">&#10095;</button>
 </div>
 
 <div class="popular-games-container">
