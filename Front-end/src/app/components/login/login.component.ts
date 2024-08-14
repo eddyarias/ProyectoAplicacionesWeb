@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
