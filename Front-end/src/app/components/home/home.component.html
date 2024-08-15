@@ -15,7 +15,8 @@
         <div class="col-md-3 mb-4" *ngFor="let juego of juegosPopulares ">
             <a [routerLink]="['/juego',juego._id]">
                 <div class="popular-game">
-                    <img class="game-image" src="{{url+'get-imagen/'+juego.portada}}" alt="Juego 1">
+                    <img class="game-image" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
+
                     <h4 class="game-title"> {{juego.nombre}} </h4>
                     <p class="game-price"> {{juego.precio}} </p>
                     <div class="game-stars">

@@ -3,7 +3,7 @@
     <div class="row mt-5 mb-4"> 
         <div class="col-md-6 d-flex justify-content-center">
             <div class="cuadro-imagen">
-                <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="God of war PS4">
+                <img class="main-imagen" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
             </div>
         </div>        
         
@@ -109,7 +109,7 @@
         <div *ngFor="let juego of juegosRelacionados" class="col-md-3 ">
             <a [routerLink] = "['/juego',juego._id]">
                 <div class="cuadro-producto">
-                    <img class="main-imagen" src="https://kalimagames.com/wp-content/uploads/2022/06/god-of-war-cover-ps4-450x548.jpg" alt="">
+                    <img class="game-image" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
                     <h4 class="game-title"> {{juego.nombre}} </h4>
                     <p class="game-price"> {{juego.precio}} </p>
                     <div>

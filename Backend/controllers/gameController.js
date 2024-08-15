@@ -36,25 +36,49 @@ let controller = {
         }
     },
 
-    //Para obtener juegos relacionados por plataforma y genero
-    getGamesByFilters: async function(req,res) {
+    //Para obtener juegos relacionados por filtros
+    getFilteredGames: async function(req, res) {
         try {
-            const {plataforma, genero} = req.query;
-
-            //construir objeto de filtro
+            // Construir el objeto de filtros basado en los parámetros de consulta
             let filters = {};
-            if(plataforma) filters.plataforma = plataforma;
-            if(genero) filters.genero = genero;
-
-            //consultar los juegos segun los filtros
-            const games = await Game.find(filters);
-
-            if(games == 0) return res.status(404).send({message: "No se encontraron juegos con esas caracteristicas"});
-            return res.status(200).send({games});           
+    
+            // Filtrar por plataforma si se proporciona
+            if (req.query.plataforma) {
+                filters.plataforma = req.query.plataforma;
+            }
+    
+            // Filtrar por stock si se proporciona
+            if (req.query.stock) {
+                filters.stock = req.query.stock === 'true' ? { $gt: 0 } : { $eq: 0 };
+            }
+    
+            // Filtrar por rango de precios si se proporciona
+            if (req.query.minPrice || req.query.maxPrice) {
+                filters.precio = {};
+                if (req.query.minPrice) {
+                    filters.precio.$gte = parseFloat(req.query.minPrice);
+                }
+                if (req.query.maxPrice) {
+                    filters.precio.$lte = parseFloat(req.query.maxPrice);
+                }
+            }
+    
+            // Obtener los juegos según los filtros
+            let games = await Game.find(filters).sort().exec();
+    
+            // Verificar si se encontraron juegos
+            if (games.length === 0) {
+                return res.status(404).send({ message: 'No se encontraron juegos que coincidan con los filtros' });
+            }
+    
+            // Devolver la lista de juegos filtrados
+            return res.status(200).send({ games });
+    
         } catch (error) {
-        return res.status(500).send({ message: 'Error al obtener los juegos', error: error.message });
-        }    
-    },
+            // Manejo de errores
+            return res.status(500).send({ message: 'Error al devolver los datos', error: error.message });
+        }
+    },    
 
     //Ver imagen
     getImagen: async function (req,res){
@@ -76,7 +100,7 @@ let controller = {
     },
 
     // Crear un nuevo juego
-    saveGame: async function(req, res) {
+    createGame: async function(req, res) {
         try {
             let game = new Game();
             let params = req.body;
@@ -89,7 +113,7 @@ let controller = {
             game.rating = params.rating;
             game.plataforma = params.plataforma;
             game.genero = params.genero;
-            game.portada = null;
+            game.portada = params.portada;
 
             let gameStored = await game.save();
             if (!gameStored) {
@@ -128,32 +152,27 @@ let controller = {
     },
 
     // Subir la portada del juego
-    uploadImagen: async function(req, res) {
+    // En gameController.js
+    uploadImage: async function(req, res) {
         try {
             let gameId = req.params.id;
-            let fileName = 'Imagen no subida';
+            let fileName = req.body.imageName; // Obtén el nombre del archivo desde el cuerpo de la solicitud
 
-            if (req.files) {
-                let filePath = req.files.portada.path;
-                let fileSplit = filePath.split('\\');
-                fileName = fileSplit[1];
-                let extSplit = fileName.split('.');
-                let fileExt = extSplit[1];
-
-                if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt.toLowerCase())) {
-                    let gameUpdated = await Game.findByIdAndUpdate(gameId, { portada: fileName }, { new: true });
-                    if (!gameUpdated) return res.status(404).send({ message: 'El juego no existe y no se puede subir la imagen' });
-                    return res.status(200).send({ game: gameUpdated });
-                } else {
-                    fs.unlink(filePath, (err) => {
-                        return res.status(200).send({ message: 'Extensión no válida' });
-                    });
+            // Verifica si el nombre del archivo tiene una extensión válida
+            let extSplit = fileName.split('.');
+            let fileExt = extSplit[1];
+            if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt.toLowerCase())) {
+                // Actualiza la base de datos con el nombre del archivo
+                let gameUpdated = await Game.findByIdAndUpdate(gameId, { portada: fileName }, { new: true });
+                if (!gameUpdated) {
+                    return res.status(404).send({ message: 'El juego no existe y no se puede actualizar la imagen' });
                 }
+                return res.status(200).send({ game: gameUpdated });
             } else {
-                return res.status(200).send({ message: fileName });
+                return res.status(400).send({ message: 'Extensión no válida' });
             }
         } catch (error) {
-            return res.status(500).send({ message: 'La imagen no se ha subido', error: error.message });
+            return res.status(500).send({ message: 'La imagen no se ha actualizado', error: error.message });
         }
     }
 }

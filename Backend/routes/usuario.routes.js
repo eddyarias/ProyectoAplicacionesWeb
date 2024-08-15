@@ -12,5 +12,7 @@ router.get('/usuarioGet/:id', userController.getUser);
 router.delete('/usuarioEliminar/:id', userController.deleteUser);
 // Ruta para actualizar un usuario por ID
 router.put('/usuarioActualizar/:id', userController.updateUser);
+// Ruta para iniciar sesión
+router.post('/usuarioLogin', userController.loginUser);
 
 module.exports = router;

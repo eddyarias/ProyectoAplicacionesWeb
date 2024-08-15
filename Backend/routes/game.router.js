@@ -2,22 +2,29 @@ const express = require('express');
 const router = express.Router();
 const gameController = require('../controllers/gameController.js');
 
-
 // Ruta para obtener todos los juegos
-router.get('/get-juegos/', gameController.getGames)
+router.get('/get-juegos', gameController.getGames);
 
-// Ruta para obtener un juego
+// Ruta para obtener un juego por ID
 router.get('/get-juego/:id', gameController.getGame);
 
-// Ruta para obtenere imagen del juego
+// Ruta para obtener una imagen de un juego
 router.get('/get-imagen/:imagen', gameController.getImagen);
 
-// Ruta para obtener juegos segun su plataforma y genero
-router.get('/get-juegos-por-filtros', gameController.getGamesByFilters);
-
-//
-router.post('/save-juego', gameController.saveGame)
+// Ruta para obtener juegos segun un filtro
+router.get('/get-juegos-por-filtros', gameController.getFilteredGames);
 
 
+// Ruta para crear un nuevo juego
+router.post('/save-juego', gameController.createGame);
+
+// Ruta para actualizar un juego existente
+router.put('/update-juego/:id', gameController.updateGame);
+
+// Ruta para eliminar un juego
+router.delete('/delete-juego/:id', gameController.deleteGame);
+
+// Ruta para subir una imagen para un juego
+router.post('/upload-image/:id', gameController.uploadImage);
 
 module.exports = router;

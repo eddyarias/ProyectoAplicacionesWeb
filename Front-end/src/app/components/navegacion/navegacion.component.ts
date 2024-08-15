@@ -1,36 +1,37 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { JuegoService } from '../../services/juego.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-navegacion',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Asegurarse de que FormsModule esté en los imports
+  imports: [CommonModule, FormsModule, HttpClientModule], // Asegurarse de que FormsModule esté en los imports
   templateUrl: './navegacion.component.html',
-  styleUrls: ['./navegacion.component.css']
+  styleUrls: ['./navegacion.component.css'],
+  providers: [JuegoService]
 })
 export class NavegacionComponent {
+
+  juegosFiltrados: any[] = [];
   consoles = [
-    { name: 'Play Station 4', count: 10, selected: false },
-    { name: 'Play Station 3', count: 5, selected: false },
-    { name: 'Play Station 2', count: 5, selected: false },
-    { name: 'Play Station 1', count: 5, selected: false },
-    { name: 'Xbox Series X/S', count: 5, selected: false },
-    { name: 'other', count: 5, selected: false }
+    { name: 'PlayStation 4', selected: false },
+    { name: 'PC', selected: false },
+    { name: 'Nintendo Switch', selected: false }
   ];
 
   availability = [
-    { name: 'En stock', count: 5, selected: false }
+    { name: 'En stock', selected: false }
   ];
 
-  prices = [
-    { name: '50,00 $ en adelante', count: 5, selected: false },
-    { name: '40,00 - 49,99 $', count: 5, selected: false },
-    { name: '20,00 - 39,99 $', count: 5, selected: false },
-    { name: '0 - 19,99 $', count: 5, selected: false }
-  ];
+  constructor(private _juegoService: JuegoService) { }
 
-  resetCategory(category: string) {
+  ngOnInit(): void {
+    this.applyFilters(); // Inicializa la carga de juegos si es necesario
+  }
+
+  resetCategory(category: string): void {
     switch (category) {
       case 'console':
         this.consoles.forEach(item => item.selected = false);
@@ -38,9 +39,34 @@ export class NavegacionComponent {
       case 'availability':
         this.availability.forEach(item => item.selected = false);
         break;
-      case 'price':
-        this.prices.forEach(item => item.selected = false);
-        break;
     }
+    this.applyFilters(); // Aplicar filtros después de resetear
+  }
+
+  applyFilters(): void {
+    const filters: any = {};
+
+    const selectedConsoles = this.consoles.filter(item => item.selected).map(item => item.name);
+    if (selectedConsoles.length > 0) {
+      filters.plataforma = selectedConsoles.join(',');
+    }
+
+    const stockAvailable = this.availability.find(item => item.selected);
+    if (stockAvailable) {
+      filters.stock = true;
+    }
+
+    this._juegoService.getFilteredGames(filters).subscribe(
+      response => {
+        if (response.games) {
+          this.juegosFiltrados = response.games; // Almacenar juegos filtrados
+        } else {
+          this.juegosFiltrados = []; // Limpiar la lista si no hay juegos
+        }
+      },
+      error => {
+        console.log('Error al obtener los juegos filtrados:', error);
+      }
+    );
   }
 }

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { JuegoService } from '../../services/juego.service';
-import { Global } from '../../services/global';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-leer-juegos',
-  standalone: true,
+  selector: 'app-borrar-juego',
+  standalone:true,
   imports:[CommonModule],
-  templateUrl: './leer-juegos.component.html',
-  styleUrls: ['./leer-juegos.component.css']
+  templateUrl: './borrar-juego.component.html',
+  styleUrls: ['./borrar-juego.component.css']
 })
-export class LeerJuegoComponent implements OnInit {
+export class BorrarJuegoComponent implements OnInit {
   juegos: any[] = [];  // Almacena la lista de juegos
 
   constructor(private juegoService: JuegoService) {}
@@ -31,5 +29,19 @@ export class LeerJuegoComponent implements OnInit {
         console.error('Error al obtener los juegos', error);
       }
     );
+  }
+
+  deleteGame(id: string): void {
+    if (confirm('¿Estás seguro de que deseas eliminar este juego?')) {
+      this.juegoService.deleteGame(id).subscribe(
+        response => {
+          console.log('Juego eliminado con éxito', response);
+          this.loadGames();  // Recargar la lista de juegos después de eliminar uno
+        },
+        error => {
+          console.error('Error al eliminar el juego', error);
+        }
+      );
+    }
   }
 }

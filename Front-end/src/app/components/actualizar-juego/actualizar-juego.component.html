@@ -1,16 +1,98 @@
-<form (ngSubmit)="actualizarJuego(form)" #form="ngForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" [(ngModel)]="juego.nombre" name="nombre" required>
+<div class="actualizar-juego-container">
+    <!-- Formulario de Actualización -->
+    <div class="formulario">
+      <h2>Actualizar Juego</h2>
+      <form [formGroup]="updateForm" (ngSubmit)="updateGame()">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input id="nombre" type="text" formControlName="nombre" [class.invalid]="updateForm.get('nombre')?.invalid && updateForm.get('nombre')?.touched">
+          <div *ngIf="updateForm.get('nombre')?.invalid && updateForm.get('nombre')?.touched" class="error">
+            Nombre es requerido y no puede exceder 50 caracteres.
+          </div>
+        </div>
   
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" [(ngModel)]="juego.descripcion" name="descripcion" required>
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" formControlName="descripcion" [class.invalid]="updateForm.get('descripcion')?.invalid && updateForm.get('descripcion')?.touched"></textarea>
+          <div *ngIf="updateForm.get('descripcion')?.invalid && updateForm.get('descripcion')?.touched" class="error">
+            Descripción es requerida y no puede exceder 200 caracteres.
+          </div>
+        </div>
   
-    <label for="precio">Precio:</label>
-    <input type="number" id="precio" [(ngModel)]="juego.precio" name="precio" required>
+        <div class="form-group">
+          <label for="precio">Precio:</label>
+          <input id="precio" type="number" formControlName="precio" [class.invalid]="updateForm.get('precio')?.invalid && updateForm.get('precio')?.touched">
+          <div *ngIf="updateForm.get('precio')?.invalid && updateForm.get('precio')?.touched" class="error">
+            El precio debe ser mayor o igual a 0.
+          </div>
+        </div>
   
-    <label for="stock">Stock:</label>
-    <input type="number" id="stock" [(ngModel)]="juego.stock" name="stock" required>
+        <div class="form-group">
+          <label for="stock">Stock:</label>
+          <input id="stock" type="number" formControlName="stock" [class.invalid]="updateForm.get('stock')?.invalid && updateForm.get('stock')?.touched">
+          <div *ngIf="updateForm.get('stock')?.invalid && updateForm.get('stock')?.touched" class="error">
+            El stock debe ser un número entero mayor o igual a 0.
+          </div>
+        </div>
   
-    <label for="sku">SKU:</label>
-    <input type="number" id="sku" [(ngModel)]="juego.s
+        <div class="form-group">
+          <label for="sku">SKU:</label>
+          <input id="sku" type="text" formControlName="sku" [class.invalid]="updateForm.get('sku')?.invalid && updateForm.get('sku')?.touched">
+          <div *ngIf="updateForm.get('sku')?.invalid && updateForm.get('sku')?.touched" class="error">
+            SKU es requerido.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <input id="rating" type="number" formControlName="rating" [class.invalid]="updateForm.get('rating')?.invalid && updateForm.get('rating')?.touched">
+          <div *ngIf="updateForm.get('rating')?.invalid && updateForm.get('rating')?.touched" class="error">
+            El rating debe estar entre 0 y 5.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="plataforma">Plataforma:</label>
+          <input id="plataforma" type="text" formControlName="plataforma" [class.invalid]="updateForm.get('plataforma')?.invalid && updateForm.get('plataforma')?.touched">
+          <div *ngIf="updateForm.get('plataforma')?.invalid && updateForm.get('plataforma')?.touched" class="error">
+            Plataforma es requerida.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="genero">Género:</label>
+          <input id="genero" type="text" formControlName="genero" [class.invalid]="updateForm.get('genero')?.invalid && updateForm.get('genero')?.touched">
+          <div *ngIf="updateForm.get('genero')?.invalid && updateForm.get('genero')?.touched" class="error">
+            Género es requerido.
+          </div>
+        </div>
+  
+        <button type="submit" [disabled]="updateForm.invalid">Actualizar Juego</button>
+      </form>
+    </div>
+  
+    <!-- Lista de Juegos en una Tabla -->
+    <div class="lista-juegos">
+      <h2>Juegos Disponibles</h2>
+      <p>Haz clic en un juego de la lista para seleccionar y actualizar sus datos.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Plataforma</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let juego of juegos" (click)="selectGame(juego)" [class.selected]="selectedGame?._id === juego._id">
+            <td>{{ juego.nombre }}</td>
+            <td>{{ juego.plataforma }}</td>
+            <td>{{ juego.precio | currency }}</td>
+            <td>{{ juego.stock }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   

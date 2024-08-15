@@ -1,25 +1,38 @@
-<div class="navegacion">
-  <div class="category-section">
-    <h3>Consola <button (click)="resetCategory('console')">Resetear</button></h3>
-    <div *ngFor="let item of consoles">
-      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
-      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
+<div class="container">
+  <div class="sidebar">
+    <div class="category-section">
+      <h3>Consola <button (click)="resetCategory('console')">Resetear</button></h3>
+      <div *ngFor="let item of consoles">
+        <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected" (change)="applyFilters()">
+        <label [for]="item.name">{{ item.name }}</label>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <h3>Disponibles <button (click)="resetCategory('availability')">Resetear</button></h3>
+      <div *ngFor="let item of availability">
+        <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected" (change)="applyFilters()">
+        <label [for]="item.name">{{ item.name }}</label>
+      </div>
     </div>
   </div>
-  
-  <div class="category-section">
-    <h3>Disponibles <button (click)="resetCategory('availability')">Resetear</button></h3>
-    <div *ngFor="let item of availability">
-      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
-      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
+
+  <div class="main-content">
+    <h3>Juegos Filtrados</h3>
+    <div *ngIf="juegosFiltrados.length > 0; else noJuegos" class="juego-card-container">
+      <div *ngFor="let juego of juegosFiltrados" class="juego-card">
+        <img [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
+        <div class="juego-info">
+          <h4>{{ juego.nombre }}</h4>
+          <p>Precio: {{ juego.precio }} $</p>
+          <p>Stock: {{ juego.stock }}</p>
+          <p>Plataforma: {{ juego.plataforma }}</p>
+          <p>Género: {{ juego.genero }}</p>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="category-section">
-    <h3>Precio <button (click)="resetCategory('price')">Resetear</button></h3>
-    <div *ngFor="let item of prices">
-      <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
-      <label [for]="item.name">{{item.name}} <span>{{item.count}}</span></label>
-    </div>
+    <ng-template #noJuegos>
+      <p>No se encontraron juegos con los filtros especificados.</p>
+    </ng-template>
   </div>
 </div>

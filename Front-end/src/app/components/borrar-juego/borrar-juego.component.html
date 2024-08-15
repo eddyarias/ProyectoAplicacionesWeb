@@ -1,0 +1,28 @@
+<div class="listar-juegos-container">
+    <h2>Eliminar Juegos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>SKU</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let juego of juegos">
+          <td>{{ juego.nombre }}</td>
+          <td>{{ juego.descripcion }}</td>
+          <td>{{ juego.precio }}</td>
+          <td>{{ juego.stock }}</td>
+          <td>{{ juego.sku }}</td>
+          <td>
+            <button (click)="deleteGame(juego._id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

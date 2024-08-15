@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CommonModule } from '@angular/common';
@@ -10,16 +10,19 @@ import { HomeComponent } from './components/home/home.component';
 import { ReviewComponent } from "./components/review/review.component";
 import { PaymentComponent } from './components/payment/payment.component';
 import { NavegacionComponent  } from './components/navegacion/navegacion.component';
-
-
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { CrearJuegoComponent } from './components/crear-juego/crear-juego.component';
+import { ActualizarJuegoComponent } from './components/actualizar-juego/actualizar-juego.component';
+import { BorrarJuegoComponent } from './components/borrar-juego/borrar-juego.component';
+import { LeerJuegoComponent } from './components/leer-juegos/leer-juegos.component';
+import { AdminComponent } from './components/admin/admin.component';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { NotificationComponent } from './components/notification/notification.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,
+  imports: [CommonModule,RouterModule,
             RouterOutlet,
             LoginComponent,
             RegisterComponent,
@@ -31,7 +34,15 @@ import { NotificationComponent } from './components/notification/notification.co
             PaymentComponent, 
             NavegacionComponent,
             CreateReviewComponent,
-          NotificationComponent], 
+          NotificationComponent,
+            CrearJuegoComponent,
+            ActualizarJuegoComponent,
+            BorrarJuegoComponent,
+            LeerJuegoComponent,
+            AdminComponent,
+            
+
+          ], 
             
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

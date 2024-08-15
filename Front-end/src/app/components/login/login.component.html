@@ -1,15 +1,14 @@
 <div class="login-container">
-    <h2>Inicia sesión</h2>
-    <form>
-      <div>
-        <input formControlName="username" placeholder="Correo electrónico o nombre de usuario">
-      </div>
-      <div>
-        <input type="password" formControlName="password" placeholder="Contraseña">
-      </div>
-      <button type="submit">Iniciar sesión</button>
-    </form>
-    <br>
-    <p>¿Primera vez en softTech? <a [routerLink]="['/register']">Regístrate ahora.</a></p>
-  </div>
-  
+  <h2>Inicia sesión</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="email" class="login-input" formControlName="email" placeholder="Correo electrónico">
+    </div>
+    <div>
+      <input type="password" class="login-input" formControlName="password" placeholder="Contraseña">
+    </div>
+    <button class="login-button" (click)="onSubmit()" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+  </form>
+  <br>
+  <p>¿Primera vez en SoftTech? <a [routerLink]="['/register']">Regístrate ahora.</a></p>
+</div>
