@@ -15,7 +15,7 @@
         <div class="col-md-3 mb-4" *ngFor="let juego of juegosPopulares ">
             <a [routerLink]="['/juego',juego._id]">
                 <div class="popular-game">
-                    <img class="game-image" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
+                    <img class="game-image" [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
 
                     <h4 class="game-title"> {{juego.nombre}} </h4>
                     <p class="game-price"> {{juego.precio}} </p>
@@ -63,7 +63,7 @@
             <div class="review">
                 <div class="user-info">
                     <div class="user-photo">
-                        <img src="http://surl.li/bqbuec" alt="Foto de Usuario">
+                        <img [src]="'http://localhost:3600/uploads/users/' + review.userImage" alt="Foto de Usuario">
                     </div>
                     <div class="user-name">
                         <h4> {{review.userName}} </h4>
@@ -74,7 +74,7 @@
                     <i *ngFor="let star of [].constructor(5-review.rating)" class="bi bi-star-fill grayStar"></i>         
                 </div>
                 <p class="user-review">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tortor nulla.
+                    {{review.comentario}}
                 </p>
             </div>
         </div>

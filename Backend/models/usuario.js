@@ -10,17 +10,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         //required: true,
         //unique: true,
-        // trim: true
+        // trim: trues
     },
     password: {
         type: String,
         //required: true,
         // minlength: 6
-    }/*,
+    },
+
     imagen: {
-        type: String,
-        // default: ''
-    }*/
+        type: String
+    }
 });
 
 

@@ -3,7 +3,7 @@
     <div class="row mt-5 mb-4"> 
         <div class="col-md-6 d-flex justify-content-center">
             <div class="cuadro-imagen">
-                <img class="main-imagen" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
+                <img class="main-imagen" [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
             </div>
         </div>        
         
@@ -85,7 +85,7 @@
                         <div class="contenedor mx-5 mb-5 mt-3">
                             <div class="d-flex justify-content-center align-items-center p-3">
                                 <div class="imagen-circular mr-3">
-                                    <img src="{{review.userImage}}" alt=""> 
+                                    <img [src]="'http://localhost:3600/uploads/users/' + review.userImage"> 
                                 </div>
                                 <p class="subtitulo mb-0"> {{review.userName}} </p>
                             </div>
@@ -109,7 +109,7 @@
         <div *ngFor="let juego of juegosRelacionados" class="col-md-3 ">
             <a [routerLink] = "['/juego',juego._id]">
                 <div class="cuadro-producto">
-                    <img class="game-image" [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
+                    <img class="game-image" [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
                     <h4 class="game-title"> {{juego.nombre}} </h4>
                     <p class="game-price"> {{juego.precio}} </p>
                     <div>

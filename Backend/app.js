@@ -26,8 +26,11 @@ app.use('/',gameRoutes);
 app.use ('/',reviewRoutes);
 
 
-// Configurar el middleware para servir archivos estáticos desde la carpeta 'uploads'
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Configurar el middleware para servir archivos estáticos desde la carpeta 'juegos' dentro de 'uploads'
+app.use('/uploads/games', express.static(path.join(__dirname, 'uploads', 'games')));
+
+// Configurar el middleware para servir archivos estáticos desde la carpeta 'usuarios' dentro de 'uploads'
+app.use('/uploads/users', express.static(path.join(__dirname, 'uploads', 'users')));
 
 //app.use('/api/users', userRoutes);
 
