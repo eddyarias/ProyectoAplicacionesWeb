@@ -15,14 +15,16 @@
       <div class="col-3">
         <img src="assets/logosPng/logo2.png" alt="Logo" class="img-fluid logo animate__animated animate__bounceIn">
       </div>
+      
       <div class="col-6">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Buscar un videojuego">
+          <input type="text" class="form-control" placeholder="Buscar un videojuego" [(ngModel)]="searchTerm">
           <div class="input-group-append">
-            <button class="btn btn-warning" type="button">Buscar</button>
+            <button class="btn btn-warning" type="button" (click)="buscarJuego()">Buscar</button>
           </div>
         </div>
       </div>
+      
       <div class="col-3 text-right">
         <a [routerLink]="['/admin']" class="text-white mx-2 d-inline-flex align-items-center">
           <i class="fas fa-user-cog fa-1x me-2"></i>
