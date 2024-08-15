@@ -172,5 +172,6 @@ export class AddProductComponent implements OnInit {
 
   cerrarCreateReview() {
     this.mostrarCreateRevies = false;
+    this.ngOnInit();
   }
 }
