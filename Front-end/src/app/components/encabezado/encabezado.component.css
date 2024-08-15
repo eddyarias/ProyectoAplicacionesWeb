@@ -21,7 +21,7 @@
 }
 
 .input-group .form-control {
-  border-radius: 0;
+  border-radius: 15px;
   transition: box-shadow 0.3s ease;
 }
 
@@ -29,7 +29,14 @@
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
 }
 
+.input-group {
+  max-width: 500px; /* Ajusta este valor según el tamaño deseado */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+
 .btn-warning {
+  border-radius: 15px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -53,4 +60,14 @@ a.text-white i {
 a.text-white span {
   display: block;
   margin-top: 5px;
+}
+
+/* Alineación para iconos y texto */
+a.d-inline-flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+a.d-inline-flex i {
+  margin-right: 0.5em; /* Espacio entre el icono y el texto */
 }
