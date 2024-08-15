@@ -1,0 +1,39 @@
+<div class="modal" *ngIf="isVisible">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Agregar Reseña</h2>
+        <p>¡Ya lo compraste! Ahora cuéntanos cómo fue la aventura.</p>
+
+        <!-- Le pasamos este form a saveReview() -->
+        <form #reviewForm="ngForm" (ngSubmit)="saveReview(reviewForm)">
+            <div>
+                <input 
+                    class="custom-input"
+                    placeholder="Comenta aquí..."
+                    type="text" 
+                    name="comentario" 
+                    #comentario="ngModel" 
+                    [(ngModel)]="review.comentario" 
+                    required>
+                <span class="comentario-obligatorio" *ngIf="comentario.touched && !comentario.valid">
+                    Comentario obligatorio
+                </span>
+            </div>
+
+            <br>
+
+            <span class="mt-5" *ngIf="rating === 0">Selecciona una calificación:</span>
+
+            <div class="d-flex justify-content-center">
+                <div class="stars">
+                    <i class="mr-2"  *ngFor="let star of [].constructor(5); let index = index"
+                        [ngClass]="{'bi-star-fill': index < rating, 'bi-star': index >= rating}"
+                        (click)="setRating(index + 1)"></i>
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="!reviewForm.form.valid || rating === 0">Comentar</button>
+        </form>
+    </div>
+</div>
+

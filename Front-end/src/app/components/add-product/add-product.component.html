@@ -76,9 +76,13 @@
             </div>
             <!-- Reseñas -->
             <div *ngIf="mostrarReviewsSection">
+                <div class="button-review-container">
+                    <button (click)="abrirCreateReview()">Agregar Reseña</button>
+                </div>
+                <app-create-review *ngIf="mostrarCreateRevies" (onClose)="cerrarCreateReview()"></app-create-review>
                 <ul>
                     <li *ngFor="let review of gameReviews">
-                        <div class="contenedor m-5">
+                        <div class="contenedor mx-5 mb-5 mt-3">
                             <div class="d-flex justify-content-center align-items-center p-3">
                                 <div class="imagen-circular mr-3">
                                     <img src="{{review.userImage}}" alt=""> 

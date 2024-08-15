@@ -1,0 +1,20 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-success {
+    background-color: #28a745; /* Verde para éxito */
+  }
+  
+  .notification-error {
+    background-color: #dc3545; /* Rojo para error */
+  }
+  

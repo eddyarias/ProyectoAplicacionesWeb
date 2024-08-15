@@ -13,6 +13,8 @@ import { NavegacionComponent  } from './components/navegacion/navegacion.compone
 
 
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +29,9 @@ import { AddProductComponent } from './components/add-product/add-product.compon
             HomeComponent,
             ReviewComponent,
             PaymentComponent, 
-            NavegacionComponent], 
+            NavegacionComponent,
+            CreateReviewComponent,
+          NotificationComponent], 
             
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -44,8 +44,7 @@ const gameSchema = new mongoose.Schema({
         required: true
     },
     portada: {
-        type: String,
-        required: true
+        type: String
     }
 });
 

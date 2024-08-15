@@ -15,8 +15,8 @@ router.get('/get-imagen/:imagen', gameController.getImagen);
 // Ruta para obtener juegos segun su plataforma y genero
 router.get('/get-juegos-por-filtros', gameController.getGamesByFilters);
 
-
-
+//
+router.post('/save-juego', gameController.saveGame)
 
 
 

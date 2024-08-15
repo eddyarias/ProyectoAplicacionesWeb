@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Juego } from '../../modules/juego';
 import { JuegoService } from '../../services/juego.service';
 import { Global } from '../../services/global';
@@ -8,16 +8,18 @@ import { Review } from '../../modules/review';
 import { ReviewService } from '../../services/review.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { CreateReviewComponent } from "../create-review/create-review.component";
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, RouterModule ],
+  imports: [HttpClientModule, CommonModule, RouterModule, CreateReviewComponent],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css',
   providers: [JuegoService, ReviewService, UserService]
 })
 export class AddProductComponent implements OnInit{
+  @ViewChild(CreateReviewComponent) modal!: CreateReviewComponent;
   public url:string;
   public juego: Juego;
   public gameReviews: Review[];
@@ -25,6 +27,7 @@ export class AddProductComponent implements OnInit{
   public mostrarReviewsSection: boolean;
   public botonSeleccionado:string;
   public juegosRelacionados: Juego[];
+  public mostrarCreateRevies:boolean;
 
 
   constructor(
@@ -40,6 +43,7 @@ export class AddProductComponent implements OnInit{
     this.mostrarReviewsSection = false;
     this.botonSeleccionado = 'descripcion';
     this.juegosRelacionados = [];
+    this.mostrarCreateRevies = false;
   }
 
   ngOnInit(): void {
@@ -130,6 +134,24 @@ export class AddProductComponent implements OnInit{
       halfStar,
       emptyStar
     }
+  }
+
+
+  abrirCreateReview() {
+    this.mostrarCreateRevies = true;
+  
+    setTimeout(() => {
+      this.modal.openModal();
+      this.modal.review.producto_id = this.juego._id;
+      this.modal.review.user_id = "66b70b57831e003dfc20bd92"
+    }, 1); // Esto permite que el modal se cree antes de llamar a openModal
+
+
+
+  }
+
+  cerrarCreateReview() {
+    this.mostrarCreateRevies = false;
   }
 }
 

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Global } from "./global";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Review } from "../modules/review";
 
 @Injectable()
 export class ReviewService{
@@ -23,6 +24,12 @@ export class ReviewService{
     getGameReviews(id:string):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'get-game-reviews/'+id, {headers:headers})
+    }
 
+    //Guardar una review
+    saveReview(review:Review):Observable<any>{
+        let params = JSON.stringify(review);
+        let headers = new HttpHeaders().set('Content-type', 'application/json');
+        return this._http.post(this.url+'save-review', params, {headers:headers})
     }
 }
