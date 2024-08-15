@@ -16,12 +16,9 @@ export class NavegacionComponent {
 
   juegosFiltrados: any[] = [];
   consoles = [
-    { name: 'Play Station 4', count: 10, selected: false },
-    { name: 'Play Station 3', count: 5, selected: false },
-    { name: 'Play Station 2', count: 5, selected: false },
-    { name: 'Play Station 1', count: 5, selected: false },
-    { name: 'Nintendo Switch', count: 5, selected: false },
-    { name: 'other', count: 5, selected: false }
+    { name: 'PlayStation 4', count: 10, selected: false },
+    { name: 'PC', count: 5, selected: false },
+    { name: 'Nintendo Switch', count: 5, selected: false }
   ];
 
   availability = [
