@@ -15,15 +15,15 @@ router.get('/get-imagen/:imagen', gameController.getImagen);
 router.get('/get-juegos-por-filtros', gameController.getGamesByFilters);
 
 // Ruta para crear un nuevo juego
-router.post('/save-juego', gameController.createGame);
+//router.post('/save-juego', gameController.createGame);
 
 // Ruta para actualizar un juego existente
-router.put('/update-juego/:id', gameController.updateGame);
+//router.put('/update-juego/:id', gameController.updateGame);
 
 // Ruta para eliminar un juego
-router.delete('/delete-juego/:id', gameController.deleteGame);
+//router.delete('/delete-juego/:id', gameController.deleteGame);
 
 // Ruta para subir una imagen para un juego
-router.post('/upload-image/:id', gameController.uploadImage);
+//router.post('/upload-image/:id', gameController.uploadImage);
 
 module.exports = router;
