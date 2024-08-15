@@ -1,22 +1,47 @@
 .tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-  
-  .tabs a {
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #007bff;
-    border-bottom: 2px solid transparent;
-  }
-  
-  .tabs a.active-link {
-    color: #0056b3;
-    border-bottom: 2px solid #0056b3;
-  }
-  
-  .tabs a:hover {
-    color: #0056b3;
-  }
-  
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #007bff;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  color: #fff;
+  background-color: #ffc107; /* Usando un color amarillo */
+  border-color: #ffc107;
+}
+
+.tabs button:hover {
+  color: #fff;
+  background-color: #e0a800; /* Un amarillo ligeramente más oscuro para el hover */
+  border-color: #e0a800;
+  transform: scale(1.1);
+}
+
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: opacity 0.3s ease;
+}
+
+.tab-content ng-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-content ng-container.ng-container[ngIf] {
+  opacity: 1;
+}
