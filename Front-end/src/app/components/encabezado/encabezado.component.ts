@@ -20,7 +20,7 @@ export class EncabezadoComponent {
   buscarJuego() {
     if (this.searchTerm) {
       // Usa el método navigate del Router para redirigir a la ruta deseada
-      this.router.navigate(['/juego', this.searchTerm]);
+      this.router.navigate(['/juego/nombre', this.searchTerm]);
     }
   }
 }

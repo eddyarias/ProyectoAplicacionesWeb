@@ -11,14 +11,14 @@ import { UserService } from '../../services/user.service';
 import { CreateReviewComponent } from "../create-review/create-review.component";
 
 @Component({
-  selector: 'app-add-product',
+  selector: 'app-add-product2',
   standalone: true,
   imports: [HttpClientModule, CommonModule, RouterModule, CreateReviewComponent],
-  templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css',
+  templateUrl: './add-product2.component.html',
+  styleUrl: './add-product2.component.css',
   providers: [JuegoService, ReviewService, UserService]
 })
-export class AddProductComponent implements OnInit{
+export class AddProductComponent2 implements OnInit{
   @ViewChild(CreateReviewComponent) modal!: CreateReviewComponent;
   public url:string;
   public juego: Juego;
@@ -51,9 +51,9 @@ export class AddProductComponent implements OnInit{
 
     this._route.params.subscribe(
       params=>{
-        let id = params['id']; //obtener el id de la url
-        this.getJuego(id);
-        this.getGameReviews(id);
+        let nombre=params['nombre'];
+        this.getJuegoPorNombre(nombre);
+        this.getGameReviewsByName(nombre);
       }
     )
     string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
@@ -61,46 +61,44 @@ export class AddProductComponent implements OnInit{
 
   }
 
-  getJuego(id:string){
-    this._juegoService.getGame(id).subscribe(
-      response=>{
-        this.juego=response.game;
+
+  getJuegoPorNombre(nombre: string) {
+    this._juegoService.getGameByName(nombre).subscribe(
+      response => {
+        this.juego = response.game; 
       },
-      error=>{
+      error => {
         console.log(error);
       }
-    )
-  }
+    );
+}
 
-
-
-  getGameReviews(id: string){
-    this._reviewService.getGameReviews(id).subscribe(
+  getGameReviewsByName(name: string) {
+    this._reviewService.getGameReviewsByName(name).subscribe(
       response => {
-        if(response.reviews){
+        if (response.reviews) {
           this.gameReviews = response.reviews;
-
+  
           // Recorrer cada reseña para obtener la información del usuario
-          this.gameReviews.forEach( review => {
+          this.gameReviews.forEach(review => {
             this._userService.getUser(review.user_id).subscribe(
-              response => {
-                review['userName'] = response.user.nombre;
-                review['userImage'] = response.user.imagen;              
+              userResponse => {
+                review['userName'] = userResponse.user.nombre;
+                review['userImage'] = userResponse.user.imagen;
               },
               error => {
                 console.log(error);
               }
-            )
-          })
-
+            );
+          });
         }
       },
       error => {
         console.log(error);
       }
-    )
+    );
   }
-
+  
   getJuegosRelacionado(filtro: string){
     console.log(filtro)
     this._juegoService.getGamesByFilter(filtro).subscribe(

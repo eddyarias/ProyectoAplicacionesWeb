@@ -12,9 +12,11 @@ import { LeerJuegoComponent } from './components/leer-juegos/leer-juegos.compone
 import { ActualizarJuegoComponent } from './components/actualizar-juego/actualizar-juego.component';
 import { BorrarJuegoComponent } from './components/borrar-juego/borrar-juego.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AddProductComponent2 } from './components/add-product2/add-product2.component';
 
 export const routes: Routes = [
     {       path: 'juego/:id', component: AddProductComponent},
+    {       path: 'juego/nombre/:nombre', component: AddProductComponent2},
     {        path: 'login',        component: LoginComponent    },
     {        path: 'cart',        component: CartComponent    },
     {        path: 'home',        component: HomeComponent    },

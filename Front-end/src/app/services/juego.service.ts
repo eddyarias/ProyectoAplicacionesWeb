@@ -31,11 +31,13 @@ export class JuegoService {
         return this._http.get(this.url + 'get-juego/' + id, { headers: headers });
     }
 
-    // Obtener un juego por nombre
-    /*getGameByName(nombre: string): Observable<any> {
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'get-juego-nombre/' + nombre, { headers: headers });
-    }*/
+// Obtener un juego por nombre
+getGameByName(nombre: string): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    let encodedName = encodeURIComponent(nombre); // Codificar el nombre del juego
+    return this._http.get(this.url + 'get-juego-by-name/' + encodedName, { headers: headers });
+}
+
 
     // Crear un nuevo juego
     createGame(game: any): Observable<any> {

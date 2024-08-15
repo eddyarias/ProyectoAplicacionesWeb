@@ -8,6 +8,10 @@ router.get('/get-juegos', gameController.getGames);
 // Ruta para obtener un juego por ID
 router.get('/get-juego/:id', gameController.getGame);
 
+// Ruta para obtener un juego por nombre
+router.get('/get-juego-by-name/:nombre', gameController.getGameByName);
+
+
 // Ruta para obtener una imagen de un juego
 router.get('/get-imagen/:imagen', gameController.getImagen);
 
