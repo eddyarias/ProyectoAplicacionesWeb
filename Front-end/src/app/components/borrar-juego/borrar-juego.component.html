@@ -1,12 +1,28 @@
-<!--<div class="borrar-juego-container">
-    <h2>Borrar Juego</h2>
-    <div *ngIf="game">
-      <p>¿Estás seguro de que deseas borrar el juego <strong>{{game.nombre}}</strong>?</p>
-      <button (click)="onDelete()">Borrar</button>
-      <button (click)="onCancel()">Cancelar</button>
-    </div>
-    <div *ngIf="!game">
-      <p>Selecciona un juego para borrar.</p>
-    </div>
+<div class="listar-juegos-container">
+    <h2>Eliminar Juegos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>SKU</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let juego of juegos">
+          <td>{{ juego.nombre }}</td>
+          <td>{{ juego.descripcion }}</td>
+          <td>{{ juego.precio }}</td>
+          <td>{{ juego.stock }}</td>
+          <td>{{ juego.sku }}</td>
+          <td>
+            <button (click)="deleteGame(juego._id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
--->
+  
