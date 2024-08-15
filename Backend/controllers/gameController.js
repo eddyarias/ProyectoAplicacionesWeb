@@ -113,7 +113,7 @@ let controller = {
             game.rating = params.rating;
             game.plataforma = params.plataforma;
             game.genero = params.genero;
-            game.portada = null;
+            game.portada = params.portada;
 
             let gameStored = await game.save();
             if (!gameStored) {
@@ -153,35 +153,28 @@ let controller = {
 
     // Subir la portada del juego
     // En gameController.js
-uploadImage: async function(req, res) { // Cambia de uploadImagen a uploadImage
-    try {
-        let gameId = req.params.id;
-        let fileName = 'Imagen no subida';
+    uploadImage: async function(req, res) {
+        try {
+            let gameId = req.params.id;
+            let fileName = req.body.imageName; // Obtén el nombre del archivo desde el cuerpo de la solicitud
 
-        if (req.files) {
-            let filePath = req.files.portada.path;
-            let fileSplit = filePath.split('\\');
-            fileName = fileSplit[1];
+            // Verifica si el nombre del archivo tiene una extensión válida
             let extSplit = fileName.split('.');
             let fileExt = extSplit[1];
-
             if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt.toLowerCase())) {
+                // Actualiza la base de datos con el nombre del archivo
                 let gameUpdated = await Game.findByIdAndUpdate(gameId, { portada: fileName }, { new: true });
-                if (!gameUpdated) return res.status(404).send({ message: 'El juego no existe y no se puede subir la imagen' });
+                if (!gameUpdated) {
+                    return res.status(404).send({ message: 'El juego no existe y no se puede actualizar la imagen' });
+                }
                 return res.status(200).send({ game: gameUpdated });
             } else {
-                fs.unlink(filePath, (err) => {
-                    return res.status(200).send({ message: 'Extensión no válida' });
-                });
+                return res.status(400).send({ message: 'Extensión no válida' });
             }
-        } else {
-            return res.status(200).send({ message: fileName });
+        } catch (error) {
+            return res.status(500).send({ message: 'La imagen no se ha actualizado', error: error.message });
         }
-    } catch (error) {
-        return res.status(500).send({ message: 'La imagen no se ha subido', error: error.message });
     }
-}
-
 }
 
 

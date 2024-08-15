@@ -37,13 +37,12 @@ export class JuegoService {
         return this._http.post(this.url + 'save-juego', JSON.stringify(game), { headers: headers });
     }
      // Cargar imagen para un juego
-     uploadImage(gameId: string, image: File): Observable<any> {
-        const formData: FormData = new FormData();
-        formData.append('image', image, image.name);
-
-        return this._http.post(this.url + 'upload-imagen/' + gameId, formData);
+     uploadImage(gameId: string, imageName: string): Observable<any> {
+        const body = { imageName };
+    
+        return this._http.post(this.url + 'upload-image/' + gameId, body);
     }
-
+    
     // Actualizar un juego existente
     updateGame(id: string, game: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');

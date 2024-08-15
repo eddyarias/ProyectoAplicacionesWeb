@@ -20,7 +20,7 @@ export class CrearJuegoComponent {
     rating: null,
     plataforma: '',
     genero: '',
-    portada: null
+    portada: ''
   };
   
   portadaSeleccionada: File | null = null;  // Aquí se almacena el archivo de portada seleccionado, permitiendo null
@@ -31,7 +31,7 @@ export class CrearJuegoComponent {
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.portadaSeleccionada = input.files[0];
+      this.game.portada = input.files[0].name;
     }
   }
 
@@ -40,8 +40,10 @@ export class CrearJuegoComponent {
     this.juegoService.createGame(this.game).subscribe(
       response => {
         console.log('Juego creado con éxito', response);
-        if (this.portadaSeleccionada) {
-          this.juegoService.uploadImage(response.game._id, this.portadaSeleccionada).subscribe(
+        if (this.game.portada) {
+          // Si deseas subir la imagen, puedes hacerlo aquí.
+          // Asegúrate de que el servicio de carga de imagen esté correctamente definido en tu servicio.
+          this.juegoService.uploadImage(response.game._id, this.game.portada).subscribe(
             () => {
               console.log('Imagen subida con éxito');
               this.router.navigate(['/']);  // Redirige a la página principal u otra página deseada
