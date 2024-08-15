@@ -1,6 +1,5 @@
-<!-- Parte imagen + cuadros de texto -->
 <div class="container">
-    <div class="row mt-5 mb-4"> 
+    <div class="row mt-5 mb-4">
         <div class="col-md-6 d-flex justify-content-center">
             <div class="cuadro-imagen">
                 <img class="main-imagen" [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
@@ -8,9 +7,9 @@
         </div>        
         
         <div class="col-md-6">
-            <div class="mt-4"> <!--titulo - stock -->
-                <h2> {{juego.nombre}} </h2>
-                <p class="precio mb-0"> {{juego.precio}} </p>
+            <div class="mt-4">
+                <h2>{{juego.nombre}}</h2>
+                <p class="precio mb-0">{{juego.precio | currency}}</p>
                 <div class="row mt-2">
                     <div class="col-md-4 pr-0 contenedor-game-estrellas">
                         <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).fullStar)" class="bi bi-star-fill"></i>
@@ -18,18 +17,18 @@
                         <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).emptyStar)" class="bi bi-star"></i>           
                     </div>
                     <div class="col-md-auto ml-0 pl-0 d-flex align-items-center"> 
-                        <p class="small font-weight-bold  pl-2 mb-0"> {{gameReviews.length}} Reseña</p>
+                        <p class="small font-weight-bold pl-2 mb-0">{{gameReviews.length}} Reseña</p>
                     </div>
                 </div>
-                <div class="row mt-2">  
+                <div class="row mt-2">
                     <div class="col-md-3 d-flex align-items-center">
                         <p class="subtitulo mb-0">Disponibilidad: </p>
                     </div>
-                    <div *ngIf="juego.stock>0" class="col-md-auto d-flex align-items-center ml-2" id="check">
+                    <div *ngIf="juego.stock > 0" class="col-md-auto d-flex align-items-center ml-2" id="check">
                         <i class="bi bi-check-lg mr-2"></i>
                         <p class="mb-0">En stock</p>
                     </div>
-                    <div *ngIf="juego.stock==0" class="col-md-auto d-flex align-items-center ml-2" id="noCheck">
+                    <div *ngIf="juego.stock == 0" class="col-md-auto d-flex align-items-center ml-2" id="noCheck">
                         <i class="bi bi-x mr-2"></i>
                         <p class="mb-0">Agotado</p>
                     </div>
@@ -38,41 +37,20 @@
                     <p>Solo queda {{juego.stock}} en stock</p>
                 </div>
                 <hr>
-            </div>
-            <div class="mt-4"> <!--Caracteristicas -->
-                <div>
-                    <p> <span class="subtitulo">Sku:</span> {{juego.sku}} </p>
-                </div>
-                <div>
-                    <p><span class="subtitulo">Categoría:</span> {{juego.plataforma}} - {{juego.genero}} </p>
-                </div>
-                <div>
-                    <p class="subtitulo">Compartir: </p>
-                    <div class="redes-sociales">
-                        <a href="mailto:?subject=Echa un vistazo a esto&body=https://example.com" target="_blank">
-                            <i class="bi bi-google"></i>
-                        </a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://wa.me/?text=Echa un vistazo a esto: https://example.com" target="_blank">
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
+                <button class="btn btn-primary mt-3" (click)="addToCart()">Agregar al carrito</button>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="row justify-content-center">
-        <div class="d-flex justify-content-center"> <!-- Descripcion y reseñas -->
-            <button class="boton mx-2" [ngClass]="{'activo':botonSeleccionado === 'descripcion'}" (click)="mostrarDescripcion()">Descripción</button>
-            <button class="boton mx-2" [ngClass]="{'activo':botonSeleccionado === 'reviews'}"   (click)="mostrarReviews()">Reseñas</button>
-        </div> 
-        <div class="contenedor-desc-rese m-5 ">
-            <!-- Descripcion -->
+        <div class="d-flex justify-content-center">
+            <button class="boton mx-2" [ngClass]="{'activo': botonSeleccionado === 'descripcion'}" (click)="mostrarDescripcion()">Descripción</button>
+            <button class="boton mx-2" [ngClass]="{'activo': botonSeleccionado === 'reviews'}" (click)="mostrarReviews()">Reseñas</button>
+        </div>
+        <div class="contenedor-desc-rese m-5">
+            <!-- Descripción -->
             <div class="contenedor-txt p-3 m-5" *ngIf='mostrarDescripcionSection'>
-                <p> {{juego.descripcion}} </p>
+                <p>{{juego.descripcion}}</p>
             </div>
             <!-- Reseñas -->
             <div *ngIf="mostrarReviewsSection">
@@ -87,31 +65,32 @@
                                 <div class="imagen-circular mr-3">
                                     <img [src]="'http://localhost:3600/uploads/users/' + review.userImage"> 
                                 </div>
-                                <p class="subtitulo mb-0"> {{review.userName}} </p>
+                                <p class="subtitulo mb-0">{{review.userName}}</p>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <i *ngFor="let star of [].constructor(review.rating)"  class="bi bi-star-fill goldStar"></i>
-                                <i *ngFor="let star of [].constructor(5-review.rating)" class="bi bi-star-fill grayStar"></i>                             
+                                <i *ngFor="let star of [].constructor(review.rating)" class="bi bi-star-fill goldStar"></i>
+                                <i *ngFor="let star of [].constructor(5 - review.rating)" class="bi bi-star-fill grayStar"></i>                             
                             </div>
                             <div class="contenedor-txt p-3 mx-5 mb-3 mt-3">
-                                <p> {{review.comentario}} </p>
-                            </div>                           
+                                <p>{{review.comentario}}</p>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+
     <div class="row mx-4">
         <h3>Productos relacionados</h3>
     </div>
     <div class="row m-2">
-        <div *ngFor="let juego of juegosRelacionados" class="col-md-3 ">
-            <a [routerLink] = "['/juego',juego._id]">
+        <div *ngFor="let juego of juegosRelacionados" class="col-md-3">
+            <a [routerLink]="['/juego', juego._id]">
                 <div class="cuadro-producto">
                     <img class="game-image" [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
-                    <h4 class="game-title"> {{juego.nombre}} </h4>
-                    <p class="game-price"> {{juego.precio}} </p>
+                    <h4 class="game-title">{{juego.nombre}}</h4>
+                    <p class="game-price">{{juego.precio | currency}}</p>
                     <div>
                         <i *ngFor="let star of [].constructor(getGameStarData(juego.rating).fullStar)" class="bi bi-star-fill goldStar"></i>
                         <i *ngIf="getGameStarData(juego.rating).halfStar" class="bi bi-star-half goldStar"></i>
