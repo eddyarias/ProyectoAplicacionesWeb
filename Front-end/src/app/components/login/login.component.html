@@ -10,5 +10,5 @@
     <button class="login-button" (click)="onSubmit()" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
   </form>
   <br>
-  <p>¿Primera vez en SoftTech? <a routerLink="/register">Regístrate ahora.</a></p>
+  <p>¿Primera vez en SoftTech? <a [routerLink]="['/register']">Regístrate ahora.</a></p>
 </div>

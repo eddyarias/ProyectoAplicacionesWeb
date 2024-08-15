@@ -15,4 +15,6 @@
     </div>
     <button class="register-button" (click)="onSubmit()" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
   </form>
+  <br>
+  <p>¿Ya tienes cuenta? <a [routerLink]="['/login']">Ingresa sesión aquí.</a></p>
 </div>
