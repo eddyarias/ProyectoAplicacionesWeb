@@ -11,8 +11,9 @@ router.get('/get-juego/:id', gameController.getGame);
 // Ruta para obtener una imagen de un juego
 router.get('/get-imagen/:imagen', gameController.getImagen);
 
-// Ruta para obtener juegos según filtros (plataforma, género)
-router.get('/get-juegos-por-filtros', gameController.getGamesByFilters);
+// Ruta para obtener juegos segun un filtro
+router.get('/get-juegos-por-filtros', gameController.getFilteredGames);
+
 
 // Ruta para crear un nuevo juego
 //router.post('/save-juego', gameController.createGame);

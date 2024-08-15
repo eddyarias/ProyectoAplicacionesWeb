@@ -1,13 +1,34 @@
-.navegacion {
+/* Asegura que el contenedor principal ocupe toda la altura disponible */
+html, body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
   display: flex;
-  flex-direction: column;
-  gap: 1em;
+  height: calc(100vh - 60px); /* Ajustar si tienes un pie de página con altura fija */
+}
+
+.sidebar {
+  width: 25%; /* Ancho de la barra lateral de filtros */
+  background-color: #f4f4f4;
+  padding: 1em;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado largo */
+}
+
+.main-content {
+  width: 75%; /* Ancho para los resultados de los juegos */
+  padding: 1em;
+  overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado largo */
 }
 
 .category-section {
   border: 1px solid #ddd;
   padding: 1em;
   border-radius: 5px;
+  margin-bottom: 1em;
 }
 
 .category-section h3 {
@@ -33,17 +54,56 @@
   margin-left: auto;
 }
 
-/* Estilos para el botón de resetear */
 button {
-  padding: 8px 16px; /* Ajusta el tamaño del botón */
-  background-color: #ffd002; /* Cambia el color de fondo */
-  color: white; /* Cambia el color del texto */
-  border: none; /* Elimina el borde predeterminado */
-  border-radius: 4px; /* Añade esquinas redondeadas */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  font-size: 14px; /* Ajusta el tamaño de la fuente */
+  padding: 8px 16px;
+  background-color: #ffd002;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 button:hover {
-  background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+  background-color: #0056b3;
+}
+
+.juego-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Mínimo de 200px por tarjeta, ajustando automáticamente */
+  gap: 1em; /* Espacio entre las tarjetas */
+}
+
+.juego-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.juego-card img {
+  width: 100%;
+  height: auto;
+}
+
+.juego-info {
+  padding: 1em;
+}
+
+.juego-info h4 {
+  margin: 0;
+}
+
+.juego-info p {
+  margin: 0.5em 0;
+}
+
+/* Ajustes para pantallas más pequeñas si es necesario */
+@media (max-width: 768px) {
+  .juego-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste para pantallas móviles */
+  }
 }

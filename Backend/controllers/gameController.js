@@ -36,25 +36,49 @@ let controller = {
         }
     },
 
-    //Para obtener juegos relacionados por plataforma y genero
-    getGamesByFilters: async function(req,res) {
+    //Para obtener juegos relacionados por filtros
+    getFilteredGames: async function(req, res) {
         try {
-            const {plataforma, genero} = req.query;
-
-            //construir objeto de filtro
+            // Construir el objeto de filtros basado en los parámetros de consulta
             let filters = {};
-            if(plataforma) filters.plataforma = plataforma;
-            if(genero) filters.genero = genero;
-
-            //consultar los juegos segun los filtros
-            const games = await Game.find(filters);
-
-            if(games == 0) return res.status(404).send({message: "No se encontraron juegos con esas caracteristicas"});
-            return res.status(200).send({games});           
+    
+            // Filtrar por plataforma si se proporciona
+            if (req.query.plataforma) {
+                filters.plataforma = req.query.plataforma;
+            }
+    
+            // Filtrar por stock si se proporciona
+            if (req.query.stock) {
+                filters.stock = req.query.stock === 'true' ? { $gt: 0 } : { $eq: 0 };
+            }
+    
+            // Filtrar por rango de precios si se proporciona
+            if (req.query.minPrice || req.query.maxPrice) {
+                filters.precio = {};
+                if (req.query.minPrice) {
+                    filters.precio.$gte = parseFloat(req.query.minPrice);
+                }
+                if (req.query.maxPrice) {
+                    filters.precio.$lte = parseFloat(req.query.maxPrice);
+                }
+            }
+    
+            // Obtener los juegos según los filtros
+            let games = await Game.find(filters).sort().exec();
+    
+            // Verificar si se encontraron juegos
+            if (games.length === 0) {
+                return res.status(404).send({ message: 'No se encontraron juegos que coincidan con los filtros' });
+            }
+    
+            // Devolver la lista de juegos filtrados
+            return res.status(200).send({ games });
+    
         } catch (error) {
-        return res.status(500).send({ message: 'Error al obtener los juegos', error: error.message });
-        }    
-    },
+            // Manejo de errores
+            return res.status(500).send({ message: 'Error al devolver los datos', error: error.message });
+        }
+    },    
 
     //Ver imagen
     getImagen: async function (req,res){

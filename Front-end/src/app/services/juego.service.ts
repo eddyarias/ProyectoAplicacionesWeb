@@ -23,12 +23,6 @@ export class JuegoService {
         return this._http.get(this.url + 'get-juego/' + id, { headers: headers });
     }
 
-    // Obtener juegos por filtros (plataforma, género)
-    getGamesByFilter(filtro: string): Observable<any> {
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'get-juegos-por-filtros?' + filtro, { headers: headers });
-    }
-
     // Crear un nuevo juego
     createGame(game: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -53,4 +47,21 @@ export class JuegoService {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.delete(this.url + 'delete-juego/' + id, { headers: headers });
     }
+
+    // Obtener juegos filtrados
+    getFilteredGames(filters: any): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');        
+        // Construcción dinámica de los parámetros de consulta
+        let query = Object.keys(filters)
+                          .map(key => `${key}=${encodeURIComponent(filters[key])}`)
+                          .join('&');
+
+        return this._http.get(this.url + 'get-juegos-por-filtros?' + query, { headers: headers });
+    }
+
+    getGamesByFilter(filtro:string):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url+'get-juegos-por-filtros?'+filtro, {headers:headers})
+    }    
 }
+
