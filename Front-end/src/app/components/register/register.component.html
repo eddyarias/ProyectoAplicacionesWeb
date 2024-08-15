@@ -1,16 +1,18 @@
 <div class="register-container">
-    <h2>Registrarse</h2>
-    <form>  
-        <div>
-            <input type="email" class="register-input" placeholder="Correo electrónico">
-        </div>
-        <div>
-        <input type="text" class="register-input" placeholder="Nombre de usuario">
-        </div>
-        <input type="password" class="register-input" placeholder="Contraseña">
-        <input type="password" class="register-input" placeholder="Repetir contraseña">
-        <button class="register-button">Registrarse</button>
-    </form>
-    <br>
-    <p>¿Ya tienes cuenta? <a [routerLink]="['/login']">Ingresa sesión aquí.</a></p>
+  <h2>Registrarse</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">  
+    <div>
+      <input type="email" class="register-input" formControlName="email" placeholder="Correo electrónico">
+    </div>
+    <div>
+      <input type="text" class="register-input" formControlName="nombre" placeholder="Nombre de usuario">
+    </div>
+    <div>
+      <input type="password" class="register-input" formControlName="password" placeholder="Contraseña">
+    </div>
+    <div>
+      <input type="password" class="register-input" formControlName="confirmPassword" placeholder="Repetir contraseña">
+    </div>
+    <button class="register-button" (click)="onSubmit()" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+  </form>
 </div>

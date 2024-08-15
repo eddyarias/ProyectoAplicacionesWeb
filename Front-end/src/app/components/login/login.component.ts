@@ -1,28 +1,36 @@
+
+// login.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // loginForm: FormGroup;
+  loginForm: FormGroup;
 
-  // constructor(private fb: FormBuilder) {
-  //   this.loginForm = this.fb.group({
-  //     username: ['', Validators.required],
-  //     password: ['', Validators.required]
-  //   });
-  // }
+  constructor(private fb: FormBuilder, private userService: UserService) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
-  // onSubmit() {
-  //   if (this.loginForm.valid) {
-  //     console.log(this.loginForm.value);
-  //     // Aquí puedes agregar la lógica para manejar el inicio de sesión.
-  //   }
-  // }
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.userService.loginUser(this.loginForm.value).subscribe(
+        response => {
+          console.log('Inicio de sesión exitoso:', response);
+        },
+        error => {
+          console.error('Error en el inicio de sesión:', error);
+        }
+      );
+    }
+  }
 }
