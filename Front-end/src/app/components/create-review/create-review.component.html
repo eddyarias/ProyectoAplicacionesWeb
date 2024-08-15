@@ -1,11 +1,11 @@
 <div class="modal" *ngIf="isVisible">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
-        <h2>Agregar Reseña</h2>
-        <p>¡Ya lo compraste! Ahora cuéntanos cómo fue la aventura.</p>
+        <h2> {{titulo}} </h2>
+        <p> {{especificacion}} </p>
 
         <!-- Le pasamos este form a saveReview() -->
-        <form #reviewForm="ngForm" (ngSubmit)="saveReview(reviewForm)">
+        <form #reviewForm="ngForm" (ngSubmit)="saveUpdateReview(reviewForm)">
             <div>
                 <input 
                     class="custom-input"

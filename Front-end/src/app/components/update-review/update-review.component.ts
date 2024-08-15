@@ -1,31 +1,30 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Review } from '../../modules/review';
-import { Global } from '../../services/global';
 import { ReviewService } from '../../services/review.service';
-import { FormsModule, NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NotificationService } from '../../services/notification.service';
+import { Global } from '../../services/global';
+import { CommonModule, NgFor } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-create-review',
+  selector: 'app-update-review',
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule],
-  templateUrl: './create-review.component.html',
-  styleUrl: './create-review.component.css',
+  templateUrl: '../create-review/create-review.component.html',
+  styleUrl: '../create-review/create-review.component.css',
   providers: [ReviewService]
 })
-export class CreateReviewComponent implements OnInit {
+export class UpdateReviewComponent implements OnInit{
   @Output() onClose = new EventEmitter<void>();  // Emite un evento cuando se cierra el modal
-
 
   public review: Review;
   public url:string;  
   public status:string;
   public isVisible: boolean;
   public rating: number = 0;  // Para almacenar la calificación
-  public titulo: string = "Agregar Comentario";
-  public especificacion: string = "¡Ya lo compraste! Ahora cuéntanos cómo fue la aventura."
+  public titulo: string = "Editar Comentario";
+  public especificacion: string = "¿Cómo has cambiado tu experiencia con el juego? Actualiza tu opinión aquí."
 
   constructor(
     private _reviewService:ReviewService,
@@ -56,23 +55,14 @@ export class CreateReviewComponent implements OnInit {
   }
 
   saveUpdateReview(form: NgForm){
-    console.log(this.review);  // Verifica el contenido antes de enviarlo
-  
-    this._reviewService.saveReview(this.review).subscribe(
+    console.log(this.review)
+    this._reviewService.updateReview(this.review).subscribe(
       response => {
-        if(response.review){
-          this.status = 'success';
-          this._notificationService.showNotification('Reseña guardada con éxito', 'success');
+          this._notificationService.showNotification('Reseña actualizada con éxito', 'success');
           this.closeModal();
-        }else{
-          this.status = 'failed';
-          this._notificationService.showNotification('No se pudo guardar la reseña', 'error');
-          form.reset();
-        }
-        console.log(this.status);
       },
       error => {  
-        console.error("Error al guardar la reseña: ", error);  // Imprime el error en la consola
+        console.error("Error al actualizar la reseña: ", error);  // Imprime el error en la consola
       }
     );
   }

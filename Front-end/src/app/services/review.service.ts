@@ -40,4 +40,22 @@ export class ReviewService{
         let headers = new HttpHeaders().set('Content-type', 'application/json');
         return this._http.post(this.url+'save-review', params, {headers:headers})
     }
+
+
+    // Eliminar una review
+    deleteReview(id: string): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.delete(this.url + 'delete-review/' + id, { headers: headers });
+    }
+
+
+    //Editar pelicula  https://localhost:3600/pelicula/:id
+    updateReview(review:Review):Observable<any>{
+        console.log(this.url+'update-review/'+review._id)
+        let params=JSON.stringify(review); 
+
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.put(this.url+'update-review/'+review._id,params,{headers:headers});        
+    }
+    
 }

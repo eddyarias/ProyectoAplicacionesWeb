@@ -6,7 +6,7 @@ export class Review{
         public rating: number,
         public user_id: string,
         public userName?: string,  
-        public userImage?: string  
+        public userImage?: string, 
     ){
     }
 }

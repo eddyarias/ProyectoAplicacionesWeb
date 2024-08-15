@@ -10,17 +10,20 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { CreateReviewComponent } from "../create-review/create-review.component";
 import Swal from 'sweetalert2'; // Importa SweetAlert2
+import { NotificationService } from '../../services/notification.service';
+import { UpdateReviewComponent } from '../update-review/update-review.component';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, RouterModule, CreateReviewComponent],
+  imports: [HttpClientModule, CommonModule, RouterModule, CreateReviewComponent, UpdateReviewComponent],
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css'],
   providers: [JuegoService, ReviewService, UserService]
 })
 export class AddProductComponent implements OnInit {
-  @ViewChild(CreateReviewComponent) modal!: CreateReviewComponent;
+  @ViewChild(CreateReviewComponent) modalCreate!: CreateReviewComponent;
+  @ViewChild(UpdateReviewComponent) modalUpdate!: UpdateReviewComponent;
 
   public url: string;
   public juego: Juego;
@@ -30,12 +33,13 @@ export class AddProductComponent implements OnInit {
   public botonSeleccionado: string;
   public juegosRelacionados: Juego[];
   public mostrarCreateRevies: boolean;
-
+  public verOpcionesED: boolean;
   constructor(
     private _juegoService: JuegoService,
     private _reviewService: ReviewService,
     private _userService: UserService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _notificationService: NotificationService
   ) {
     this.url = Global.url;
     this.juego = new Juego('', '', '', 1, 1, 1, 1, '', '', '');
@@ -45,6 +49,7 @@ export class AddProductComponent implements OnInit {
     this.botonSeleccionado = 'descripcion';
     this.juegosRelacionados = [];
     this.mostrarCreateRevies = false;
+    this.verOpcionesED = false;
   }
 
   ngOnInit(): void {
@@ -53,6 +58,13 @@ export class AddProductComponent implements OnInit {
       this.getJuego(id);
       this.getGameReviews(id);
     });
+
+    
+    setTimeout(() => { 
+      let string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
+      this.getJuegosRelacionado(string);
+    }, 1000);
+
   }
 
   getJuego(id: string) {
@@ -160,18 +172,83 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  abrirCreateReview() {
-    this.mostrarCreateRevies = true;
+  abrirCreateUpdateReview(type: string, idReview: string) {
+    const user = localStorage.getItem('user')
+    if(user){
+      const parsedUser = JSON.parse(user);
+      const userId = parsedUser._id
 
-    setTimeout(() => {
-      this.modal.openModal();
-      this.modal.review.producto_id = this.juego._id;
-      this.modal.review.user_id = "66b70b57831e003dfc20bd92";
-    }, 1); // Esto permite que el modal se cree antes de llamar a openModal
+      if(type == 'create'){
+        this.mostrarCreateRevies = true;
+
+        setTimeout(() => {
+          this.modalCreate.openModal();
+          this.modalCreate.review.producto_id = this.juego._id;
+          this.modalCreate.review.user_id = userId;
+        }, 1); // Esto permite que el modal se cree antes de llamar a openModal
+      }else{
+        this.mostrarCreateRevies = true;
+
+        setTimeout(() => {
+
+          this.modalUpdate.openModal();
+          this.modalUpdate.review.producto_id = this.juego._id;
+          this.modalUpdate.review.user_id = userId;
+          this.modalUpdate.review._id = idReview;
+        }, 1); // Esto permite que el modal se cree antes de llamar a openModal
+       
+      }
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'No estás logueado',
+        text: 'Debes iniciar sesión para poder agregar una reseña.',
+        confirmButtonText: 'Aceptar'
+      }); 
+    }
+  }
+
+
+  activarOpcionesReview(userIdReview: string): boolean { //para activa la opcion de poder editar segun el usuario
+    const user = localStorage.getItem('user');
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      const userId = parsedUser._id;
+  
+      if (userId === userIdReview) {
+        return true;
+      }
+    }
+    return false;
+    
+  }
+
+  verOpciones(){
+    this.verOpcionesED = true;
+
+    console.log(this.verOpcionesED)
   }
 
   cerrarCreateReview() {
     this.mostrarCreateRevies = false;
+    this.verOpcionesED = false;
     this.ngOnInit();
   }
+
+
+  deleteReview(reviewId:string){
+    if(confirm('¿Estás seguro de que deseas eliminar tu resña?')){
+      this._reviewService.deleteReview(reviewId).subscribe(
+        response =>{
+            this._notificationService.showNotification("Reseña eliminada con exito", 'success');
+        }
+      )
+    }
+
+    setTimeout(() => { 
+      this.ngOnInit();
+    }, 1000);
+
+  }
+  
 }
