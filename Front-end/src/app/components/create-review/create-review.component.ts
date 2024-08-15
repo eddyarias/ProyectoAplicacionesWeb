@@ -17,6 +17,8 @@ import { NotificationService } from '../../services/notification.service';
 })
 export class CreateReviewComponent implements OnInit {
   @Output() onClose = new EventEmitter<void>();  // Emite un evento cuando se cierra el modal
+
+
   public review: Review;
   public url:string;  
   public status:string;

@@ -58,9 +58,11 @@ export class AddProductComponent implements OnInit{
         this.getGameReviews(id);
       }
     )
-    string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
-    this.getJuegosRelacionado(string);
 
+    setTimeout(() => { 
+      string = "plataforma="+this.juego.plataforma+"&genero="+this.juego.genero;
+      this.getJuegosRelacionado(string);
+    }, 1000);
   }
 
   getJuego(id:string){
@@ -73,18 +75,6 @@ export class AddProductComponent implements OnInit{
       }
     )
   }
-
-  /*getJuegoPorNombre(nombre: string) {
-    this._juegoService.getGameByName(nombre).subscribe(
-      response => {
-        this.juego = response.game; 
-      },
-      error => {
-        console.log(error);
-      }
-    );
-}*/
-
 
   getGameReviews(id: string){
     this._reviewService.getGameReviews(id).subscribe(
@@ -166,6 +156,7 @@ export class AddProductComponent implements OnInit{
 
   cerrarCreateReview() {
     this.mostrarCreateRevies = false;
+    this.ngOnInit();
   }
 }
 
