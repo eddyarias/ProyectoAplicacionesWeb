@@ -9,6 +9,7 @@ import { ReviewService } from '../../services/review.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { CreateReviewComponent } from "../create-review/create-review.component";
+import Swal from 'sweetalert2'; // Importa SweetAlert2
 
 @Component({
   selector: 'app-add-product',
@@ -19,7 +20,7 @@ import { CreateReviewComponent } from "../create-review/create-review.component"
   providers: [JuegoService, ReviewService, UserService]
 })
 export class AddProductComponent implements OnInit {
-  @ViewChild(CreateReviewComponent) modal!: CreateReviewComponent; // Define la referencia al modal
+  @ViewChild(CreateReviewComponent) modal!: CreateReviewComponent;
 
   public url: string;
   public juego: Juego;
@@ -127,20 +128,36 @@ export class AddProductComponent implements OnInit {
   }
 
   addToCart() {
-    const cart = localStorage.getItem('cart');
-    let cartItems = cart ? JSON.parse(cart) : [];
+    Swal.fire({
+      title: '¿Está seguro de que desea agregar este producto al carrito?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, agregar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const cart = localStorage.getItem('cart');
+        let cartItems = cart ? JSON.parse(cart) : [];
 
-    // Check if the item is already in the cart
-    const existingItem = cartItems.find((item: any) => item._id === this.juego._id);
+        // Check if the item is already in the cart
+        const existingItem = cartItems.find((item: any) => item._id === this.juego._id);
 
-    if (existingItem) {
-      existingItem.cantidad += 1;
-    } else {
-      cartItems.push({ ...this.juego, cantidad: 1 });
-    }
+        if (existingItem) {
+          existingItem.cantidad += 1;
+        } else {
+          cartItems.push({ ...this.juego, cantidad: 1 });
+        }
 
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-    alert('Producto agregado al carrito');
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Producto agregado',
+          text: 'El producto ha sido agregado al carrito exitosamente.',
+          confirmButtonText: 'Continuar'
+        });
+      }
+    });
   }
 
   abrirCreateReview() {
@@ -149,7 +166,7 @@ export class AddProductComponent implements OnInit {
     setTimeout(() => {
       this.modal.openModal();
       this.modal.review.producto_id = this.juego._id;
-      this.modal.review.user_id = "66b70b57831e003dfc20bd92"
+      this.modal.review.user_id = "66b70b57831e003dfc20bd92";
     }, 1); // Esto permite que el modal se cree antes de llamar a openModal
   }
 
