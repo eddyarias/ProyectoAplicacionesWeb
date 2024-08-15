@@ -1,51 +1,83 @@
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.actualizar-juego-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.formulario {
+  width: 45%;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
   background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.lista-juegos {
+  width: 50%;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"],
-textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+tr.selected {
+  background-color: #dfe6e9;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
+  padding: 8px 12px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
   background-color: #0056b3;
 }
 
-button.cancel {
-  background-color: #6c757d;
+.form-group {
+  margin-bottom: 15px;
 }
 
-button.cancel:hover {
-  background-color: #5a6268;
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.invalid {
+  border-color: red;
 }

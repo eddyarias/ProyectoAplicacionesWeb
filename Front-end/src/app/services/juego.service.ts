@@ -48,7 +48,7 @@ export class JuegoService {
     updateGame(id: string, game: any): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.put(this.url + 'update-juego/' + id, JSON.stringify(game), { headers: headers });
-    }
+      }
 
     // Eliminar un juego
     deleteGame(id: string): Observable<any> {
