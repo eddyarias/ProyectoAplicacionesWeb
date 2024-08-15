@@ -1,5 +1,6 @@
 .register-container {
     max-width: 600px;
+    margin: 0 auto;
     background-color: #eaf6ff;
     padding: 20px;
     border-radius: 5px;
@@ -8,9 +9,9 @@
 }
 
 .register-container h2 {
-    font-size: 24px;
-    color: #003366;
-    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: #1b5a7d;
 }
 
 .register-input {
@@ -33,4 +34,10 @@
 .register-button:hover {
     background-color: #ff7f00;
 }
+
+a {
+    font-weight: bold;
+    color: #2c2d2e;
+    text-decoration: none;
+  }
 

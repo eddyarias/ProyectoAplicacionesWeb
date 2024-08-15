@@ -4,6 +4,7 @@ var app = express();
 var userRoutes = require('./routes/usuario.routes');
 var gameRoutes = require('./routes/game.router');
 var reviewRoutes = require('./routes/review.router')
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,6 +25,9 @@ app.use('/',gameRoutes);
 //rutas de las reseñas
 app.use ('/',reviewRoutes);
 
+
+// Configurar el middleware para servir archivos estáticos desde la carpeta 'uploads'
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //app.use('/api/users', userRoutes);
 
