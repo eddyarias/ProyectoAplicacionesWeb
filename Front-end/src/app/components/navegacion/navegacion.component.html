@@ -21,14 +21,16 @@
     <h3>Juegos Filtrados</h3>
     <div *ngIf="juegosFiltrados.length > 0; else noJuegos" class="juego-card-container">
       <div *ngFor="let juego of juegosFiltrados" class="juego-card">
-        <img [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
+        
+        <a [routerLink]="['/juego',juego._id]">
         <div class="juego-info">
+          <img [src]="'http://localhost:3600/uploads/games/' + juego.portada" alt="{{ juego.nombre }}">
           <h4>{{ juego.nombre }}</h4>
           <p>Precio: {{ juego.precio }} $</p>
           <p>Stock: {{ juego.stock }}</p>
           <p>Plataforma: {{ juego.plataforma }}</p>
           <p>Género: {{ juego.genero }}</p>
-        </div>
+        </div></a>
       </div>
     </div>
     <ng-template #noJuegos>
