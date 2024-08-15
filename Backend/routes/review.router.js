@@ -8,6 +8,9 @@ router.get('/get-reviews/', reviewController.getReviews);
 //Ruta para obtener todas las resenias de un juego
 router.get('/get-game-reviews/:id', reviewController.getGameReviews);
 
+// Ruta para obtener todas las reseñas de un juego por nombre
+router.get('/get-game-reviews-by-name/:nombre', reviewController.getGameReviewsByName);
+
 // Ruta para guardar una review
 router.post('/save-review', reviewController.saveReview);
 

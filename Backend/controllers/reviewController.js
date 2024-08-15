@@ -1,5 +1,6 @@
 const Game = require("../models/game");
 const Review = require("../models/review");
+const decodeURI = require('querystring').unescape;
 
 async function updateRatingGame(gameId){
     try {
@@ -38,6 +39,30 @@ let controller = {
             
         }
     },
+
+    
+    // Método para obtener todas las reseñas de un juego por nombre
+        getGameReviewsByName: async function (req, res) {
+            try {
+                let gameName = decodeURI(req.params.nombre); // Decodificar el nombre del juego
+                if (!gameName) return res.status(404).send({ message: 'El nombre del juego es requerido' });
+        
+                // Usar RegExp para una búsqueda que permita coincidencias parciales y sea insensible a mayúsculas y minúsculas
+                const game = await Game.findOne({ nombre: new RegExp(gameName, 'i') });
+                if (!game) return res.status(404).send({ message: 'El juego no existe' });
+        
+                // Obtener las reseñas utilizando el ID del juego encontrado
+                const reviews = await Review.find({ producto_id: game._id }).sort().exec();
+                if (reviews.length === 0) return res.status(404).send({ message: 'No hay reseñas' });
+        
+                return res.status(200).send({ reviews });
+            } catch (error) {
+                return res.status(500).send({ message: 'Error al devolver los datos', error: error.message });
+            }
+        },
+        
+    
+    
 
     //Crear una review 
     saveReview: async function (req,res) {

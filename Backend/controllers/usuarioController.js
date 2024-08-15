@@ -2,26 +2,29 @@ const User = require('../models/usuario');
 
 var controller = {
     // Método para registrar un nuevo usuario
-    // registerUser: async function (req, res) {
-    //     try {
-    //         var params = req.body;
-    //         var user = new User();
-    //         user.nombre = params.nombre;
-    //         user.email = params.email.trim().toLowerCase(); // Normaliza el correo electrónico
-    //         user.password = params.password; // No encriptado
-
-
-    //         const existingUser = await User.findOne({ email: user.email });
-    //         if (existingUser) {
-    //             return res.status(409).send({ message: 'El correo electrónico ya está registrado' });
-    //         }
-
-    //         var userStored = await user.save();
-    //         return res.status(201).send({ message: 'Usuario registrado exitosamente', user: userStored });
-    //     } catch (error) {
-    //         return res.status(500).send({ message: 'Error al registrar el usuario', error: error.message });
-    //     }
-    // },
+    registerUser: async function (req, res) {
+        try {
+            var params = req.body;
+            if (!params.nombre || !params.email || !params.password) {
+                return res.status(400).send({ message: 'Faltan uno o más campos obligatorios' });
+            }
+            
+            var user = new User();
+            user.nombre = params.nombre;
+            user.email = params.email.trim().toLowerCase(); // Normaliza el correo electrónico
+            user.password = params.password; // No encriptado
+    
+            const existingUser = await User.findOne({ email: user.email });
+            if (existingUser) {
+                return res.status(409).send({ message: 'El correo electrónico ya está registrado' });
+            }
+    
+            var userStored = await user.save();
+            return res.status(201).send({ message: 'Usuario registrado exitosamente', user: userStored });
+        } catch (error) {
+            return res.status(500).send({ message: 'Error al registrar el usuario', error: error.message });
+        }
+    },
     registerUser: async function (req, res) {
         try {
             var params = req.body;

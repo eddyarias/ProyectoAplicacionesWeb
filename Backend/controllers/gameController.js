@@ -1,6 +1,7 @@
 const Game = require('../models/game');
 let fs = require('fs');
 let path = require('path');
+const decodeURI = require('querystring').unescape;
 
 
 let controller = {
@@ -35,6 +36,30 @@ let controller = {
             return res.status(500).send({ message: "Error al devolver el juego", error: error.message });
         }
     },
+
+
+    // Método para obtener los datos del juego por nombre
+    getGameByName: async function (req, res) {
+        try {
+            let gameName = decodeURI(req.params.nombre); // Decodificar el nombre del juego
+            if (!gameName) {
+                return res.status(400).send({ message: 'El nombre del juego es requerido' });
+            }
+    
+            // Usar RegExp para una búsqueda que permita coincidencias parciales y sea insensible a mayúsculas y minúsculas
+            let game = await Game.findOne({ nombre: new RegExp(gameName, 'i') });
+            if (!game) {
+                return res.status(404).send({ message: 'El juego no existe' });
+            } else {
+                return res.status(200).send({ game });
+            }
+        } catch (error) {
+            return res.status(500).send({ message: 'Error al devolver el juego', error: error.message });
+        }
+    },
+    
+    
+
 
     //Para obtener juegos relacionados por filtros
     getFilteredGames: async function(req, res) {

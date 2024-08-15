@@ -26,6 +26,14 @@ export class ReviewService{
         return this._http.get(this.url+'get-game-reviews/'+id, {headers:headers})
     }
 
+    // Ver todas las reseñas de un juego por nombre
+    getGameReviewsByName(name: string): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        let encodedName = encodeURIComponent(name);
+        return this._http.get(this.url + 'get-game-reviews-by-name/' + encodedName, { headers: headers });
+      }
+      
+
     //Guardar una review
     saveReview(review:Review):Observable<any>{
         let params = JSON.stringify(review);
