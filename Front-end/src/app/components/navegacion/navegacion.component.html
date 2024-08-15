@@ -21,7 +21,7 @@
     <h3>Juegos Filtrados</h3>
     <div *ngIf="juegosFiltrados.length > 0; else noJuegos" class="juego-card-container">
       <div *ngFor="let juego of juegosFiltrados" class="juego-card">
-        <img [src]="juego.portada" alt="{{ juego.nombre }}" />
+        <img [src]="'http://localhost:3600/uploads/' + juego.portada" alt="{{ juego.nombre }}">
         <div class="juego-info">
           <h4>{{ juego.nombre }}</h4>
           <p>Precio: {{ juego.precio }} $</p>
