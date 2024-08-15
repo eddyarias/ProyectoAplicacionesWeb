@@ -16,13 +16,13 @@ export class NavegacionComponent {
 
   juegosFiltrados: any[] = [];
   consoles = [
-    { name: 'PlayStation 4', count: 10, selected: false },
-    { name: 'PC', count: 5, selected: false },
-    { name: 'Nintendo Switch', count: 5, selected: false }
+    { name: 'PlayStation 4', selected: false },
+    { name: 'PC', selected: false },
+    { name: 'Nintendo Switch', selected: false }
   ];
 
   availability = [
-    { name: 'En stock', count: 5, selected: false }
+    { name: 'En stock', selected: false }
   ];
 
   constructor(private _juegoService: JuegoService) { }

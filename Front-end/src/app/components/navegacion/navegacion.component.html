@@ -4,7 +4,7 @@
       <h3>Consola <button (click)="resetCategory('console')">Resetear</button></h3>
       <div *ngFor="let item of consoles">
         <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected" (change)="applyFilters()">
-        <label [for]="item.name">{{ item.name }} <span>{{ item.count }}</span></label>
+        <label [for]="item.name">{{ item.name }}</label>
       </div>
     </div>
 
@@ -12,7 +12,7 @@
       <h3>Disponibles <button (click)="resetCategory('availability')">Resetear</button></h3>
       <div *ngFor="let item of availability">
         <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected" (change)="applyFilters()">
-        <label [for]="item.name">{{ item.name }} <span>{{ item.count }}</span></label>
+        <label [for]="item.name">{{ item.name }}</label>
       </div>
     </div>
   </div>
