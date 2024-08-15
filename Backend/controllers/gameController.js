@@ -76,7 +76,7 @@ let controller = {
     },
 
     // Crear un nuevo juego
-    saveGame: async function(req, res) {
+    createGame: async function(req, res) {
         try {
             let game = new Game();
             let params = req.body;
