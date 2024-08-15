@@ -52,6 +52,8 @@ export class AddProductComponent implements OnInit{
     this._route.params.subscribe(
       params=>{
         let id = params['id']; //obetener el id de la url
+        //let nombre=params['nombre'];
+        //this.getJuegoPorNombre(nombre);
         this.getJuego(id);
         this.getGameReviews(id);
       }
@@ -71,6 +73,18 @@ export class AddProductComponent implements OnInit{
       }
     )
   }
+
+  /*getJuegoPorNombre(nombre: string) {
+    this._juegoService.getGameByName(nombre).subscribe(
+      response => {
+        this.juego = response.game; 
+      },
+      error => {
+        console.log(error);
+      }
+    );
+}*/
+
 
   getGameReviews(id: string){
     this._reviewService.getGameReviews(id).subscribe(

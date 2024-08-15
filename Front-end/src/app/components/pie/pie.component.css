@@ -36,3 +36,39 @@
 .mb-2 {
   margin-bottom: 0.5rem !important;
 }
+
+footer ul {
+  padding-left: 0; /* Elimina el padding izquierdo predeterminado */
+  list-style-type: none; /* Elimina los puntos predeterminados de la lista */
+}
+
+footer li {
+  position: relative; /* Necesario para el posicionamiento del círculo */
+  padding-left: 30px; /* Espacio para el círculo */
+  margin-bottom: 10px; /* Espacio entre elementos de la lista */
+}
+
+footer li::before {
+  content: ''; /* Crea un contenido vacío para el círculo */
+  position: absolute; /* Posiciona el círculo absolutamente */
+  left: 0; /* Alinea el círculo a la izquierda del elemento */
+  top: 50%; /* Centra el círculo verticalmente */
+  transform: translateY(-50%); /* Ajusta el círculo al centro vertical */
+  width: 8px; /* Tamaño del círculo */
+  height: 8px; /* Tamaño del círculo */
+  border-radius: 50%; /* Hace el círculo redondo */
+  background-color: #ffffff; /* Color del círculo */
+}
+
+.footer-icon {
+  margin: 0 10px;          /* Espacio entre los íconos */
+  width: 24px;             /* Ajusta el tamaño de los íconos */
+  height: 24px;            /* Ajusta el tamaño de los íconos */
+
+}
+.logo-img {
+  max-width: 100%;     /* Asegura que el logo no exceda el contenedor */
+  height: auto;        /* Mantiene la proporción del logo */
+  width: 200px;        /* Ajusta el ancho del logo según sea necesario */
+}
+

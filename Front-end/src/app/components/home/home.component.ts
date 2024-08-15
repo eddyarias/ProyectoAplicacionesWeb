@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit{
   public lanzamientosSlides: {src: string, alt:string}[]; //Array de objetos
 
   constructor(
-    private _servicePelicula:JuegoService,
+    private _serviceJuego:JuegoService,
     private _serviceReview:ReviewService,
     private _serviceUsuario:UserService
   ){
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit{
   }
 
   getGames(){
-    this._servicePelicula.getGames().subscribe(
+    this._serviceJuego.getGames().subscribe(
       response => {
         if(response.games){
           this.juegosPopulares = response.games.slice(0,8);

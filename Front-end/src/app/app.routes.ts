@@ -27,7 +27,8 @@ export const routes: Routes = [
       { path: 'crear', component: CrearJuegoComponent },
       { path: 'leer', component: LeerJuegoComponent },
       { path: 'actualizar', component: ActualizarJuegoComponent },
-      { path: 'borrar', component: BorrarJuegoComponent }
+      { path: 'borrar', component: BorrarJuegoComponent },
+      {path: '**',        component: HomeComponent    }
 
 
 ];

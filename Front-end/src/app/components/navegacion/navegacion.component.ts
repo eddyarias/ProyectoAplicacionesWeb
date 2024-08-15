@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 import { JuegoService } from '../../services/juego.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navegacion',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule], // Asegurarse de que FormsModule esté en los imports
+  imports: [CommonModule, FormsModule, HttpClientModule,RouterModule], // Asegurarse de que FormsModule esté en los imports
   templateUrl: './navegacion.component.html',
   styleUrls: ['./navegacion.component.css'],
   providers: [JuegoService]
