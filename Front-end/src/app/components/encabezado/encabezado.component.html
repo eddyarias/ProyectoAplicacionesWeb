@@ -26,21 +26,24 @@
       </div>
       
       <div class="col-3 text-right">
-        <a [routerLink]="['/admin']" class="text-white mx-2 d-inline-flex align-items-center">
-          <i class="fas fa-user-cog fa-1x me-2"></i>
-          <span>Administrador</span>
-        </a>
-        <a [routerLink]="['/login']" class="text-white mx-2 d-inline-flex align-items-center">
+        <span *ngIf="nombreUsuario" class="text-white mx-2 d-inline-flex align-items-center">
+          Bienvenido, {{ nombreUsuario }}
+        </span>
+        <a *ngIf="!nombreUsuario" [routerLink]="['/login']" class="text-white mx-2 d-inline-flex align-items-center">
           <i class="fas fa-user fa-1x me-2"></i>
           <span>Iniciar</span>
         </a>
-        <a [routerLink]="['/register']" class="text-white mx-2 d-inline-flex align-items-center">
+        <a *ngIf="!nombreUsuario" [routerLink]="['/register']" class="text-white mx-2 d-inline-flex align-items-center">
           <i class="fas fa-user-plus fa-1x me-2"></i>
           <span>Registrarse</span>
         </a>
         <a [routerLink]="['/cart']" class="text-white mx-2 d-inline-flex align-items-center">
           <i class="fas fa-shopping-cart fa-1x me-2"></i>
           <span>Carrito</span>
+        </a>
+        <a *ngIf="nombreUsuario" (click)="logout()" class="text-white mx-2 d-inline-flex align-items-center">
+          <i class="fas fa-sign-out-alt fa-1x me-2"></i>
+          <span>Cerrar sesión</span>
         </a>
       </div>
     </div>
