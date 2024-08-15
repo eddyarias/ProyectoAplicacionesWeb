@@ -1,0 +1,178 @@
+.cuadro-imagen{
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* espacio entre la imagen y el borde */
+    display: flex; /* centrar el contenido del cuadro */
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box; 
+}
+
+.main-imagen{
+    width: 100%; 
+    height: 100%;
+}
+
+.game-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.precio{
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+}
+
+
+.contenedor-game-estrellas i {
+    font-size: 26px;
+    color: gold;    
+    margin-right: 10px;
+}
+
+.contenedor-game-estrellas i:last-of-type {
+    margin-right: 0;
+}
+
+.goldStar{
+    color: gold;
+    margin-right: 10px;
+}
+
+.grayStar{
+    color: #acacac;
+    margin-right: 10px;
+}
+
+#check{
+    font-size: 20px;
+    color: #30bd57; 
+}
+
+#noCheck{
+    font-size: 20px;
+    color: red;
+}
+
+
+.subtitulo{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.redes-sociales{
+    display: flex;
+    justify-content: center;
+}
+
+.redes-sociales i{
+    font-size: 30px;
+    color: black;
+    margin-right: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.contenedor{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+}
+
+.contenedor-txt{
+    border-radius: 20px;
+    background-color: #e2f4ff;
+}
+
+.contenedor-desc-rese{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width:  1114px; 
+    height: 330px;    
+    overflow-y: scroll;
+}
+
+.boton{
+    border: 1px solid #0a0a0a;
+    border-radius: 20px;
+    background-color: white;
+    font-weight: 500;
+    padding: 15px 45px;
+    cursor: pointer;
+    transition: box-shadow 0.1s, color 0.3s, background-color 0.3s;
+}
+
+.boton:hover{   
+    box-shadow: 0 0 0 0.5px #0a0a0a; /* Sombra que actúa como borde */
+}
+
+.boton:active, .boton.activo {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+
+.imagen-circular img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-photo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.cuadro-producto{
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* espacio entre la imagen y el borde */
+    box-sizing: border-box; 
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.game-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+
+ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.button-review-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-review-container button{
+    margin-top: 20px ;
+    border: 1px solid #0a0a0a;
+    border-radius: 20px;
+    background-color: white;
+    font-weight: 700;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: box-shadow 0.1s; 
+}
+.button-review-container button:hover{
+    box-shadow: 0 0 0 1px black;
+}
+
+
