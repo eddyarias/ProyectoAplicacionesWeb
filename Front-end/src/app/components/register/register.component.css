@@ -1,6 +1,6 @@
 .register-container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 40px auto; /* Centra el contenedor horizontalmente y añade separación vertical */
     background-color: #eaf6ff;
     padding: 20px;
     border-radius: 5px;
@@ -12,6 +12,7 @@
     font-weight: bold;
     text-align: left;
     color: #1b5a7d;
+    margin-bottom: 20px; /* Añade espacio debajo del título */
 }
 
 .register-input {
@@ -39,5 +40,4 @@ a {
     font-weight: bold;
     color: #2c2d2e;
     text-decoration: none;
-  }
-
+}

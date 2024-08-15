@@ -26,6 +26,10 @@
       </div>
       
       <div class="col-3 text-right">
+        <a [routerLink]="['/admin']" class="text-white mx-2 d-inline-flex align-items-center">
+          <i class="fas fa-user-cog fa-1x me-2"></i>
+          <span>Administrador</span>
+        </a>
         <span *ngIf="nombreUsuario" class="text-white mx-2 d-inline-flex align-items-center">
           Bienvenido, {{ nombreUsuario }}
         </span>
