@@ -1,4 +1,18 @@
+const Game = require("../models/game");
 const Review = require("../models/review");
+
+async function updateRatingGame(gameId){
+    try {
+        const reviews = await Review.find({producto_id: gameId});
+        const tatalRating = reviews.reduce((sum, review) => sum + review.rating,0);
+        const averageRating = (reviews.length>0)? tatalRating/reviews.length: 0;
+
+        const updateRatingGame = await Game.findByIdAndUpdate(gameId, {rating: averageRating}, {new: true});   
+        return updateRatingGame;
+    } catch (error) {
+        throw new Error('Error al actualizar el rating del juego: ' + error.message);
+    }
+}
 
 let controller = {
     //Metodo para obtener todas las resenias
@@ -37,13 +51,19 @@ let controller = {
             review.user_id = params.user_id;
 
             let reviewStored = await review.save();
-
             if(!reviewStored){
                 return res.status(404).send({mensaje: 'No se guardó la reseña'})  
             }
+
+            //Actualizar el rating del juego
+            let ratingGame = await updateRatingGame(review.producto_id);
+            if(!ratingGame){
+                return res.status(404).send({mensaje: 'No se actualizo el rating del juego'})  
+            }
+
             return res.status(200).send({review: reviewStored});
         } catch (error) {
-            return res.status(500).send({ message: 'Error al guardar el juego', error: error.message });
+            return res.status(500).send({ message: 'Error al guardar la review', error: error.message });
         }    
     },
 
@@ -55,9 +75,16 @@ let controller = {
 
             let reviewUpdated = await Review.findByIdAndUpdate(review_id, params);
             if (!reviewUpdated) return res.status(404).send({ message: 'La review no se puede actualizar' });
+
+            //Actualizar el rating del juego
+            let ratingGame =  await updateRatingGame(reviewUpdated.producto_id);
+            if(!ratingGame){
+                return res.status(404).send({mensaje: 'No se actualizo el rating del juego'})  
+            }
+
             return res.status(200).send({ review: reviewUpdated });
         } catch (error) {
-            return res.status(500).send({ message: 'Error al actualizar el juego', error: error.message });
+            return res.status(500).send({ message: 'Error al actualizar la reseña', error: error.message });
         }
     },
 
@@ -67,11 +94,22 @@ let controller = {
             let review_id = req.params.id;
             let reviewRemoved = await Review.findByIdAndDelete(review_id);
             if (!reviewRemoved) return res.status(404).send({ message: 'El juego no se puede eliminar' });
+
+
+            //Actualizar el rating del juego
+            let ratingGame =  await updateRatingGame(reviewRemoved.producto_id);
+            if(!ratingGame){
+                return res.status(404).send({mensaje: 'No se actualizo el rating del juego'})  
+            }
+
             return res.status(200).send({ review: reviewRemoved });
         } catch (error) {
             return res.status(500).send({ message: 'Error al eliminar el juego', error: error.message })
         }
     }
 }
+
+
+
 
 module.exports = controller;
