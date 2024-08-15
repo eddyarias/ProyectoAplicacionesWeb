@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, catchError, throwError } from "rxjs";
 import { Global } from "./global";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root' // Esto hace que el servicio esté disponible en toda la aplicación
+})
 export class JuegoService {
     public url: string;
 
@@ -14,7 +16,13 @@ export class JuegoService {
     // Obtener todos los juegos
     getGames(): Observable<any> {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'get-juegos', { headers: headers });
+        return this._http.get(this.url + 'get-juegos', { headers: headers })
+            .pipe(
+                catchError(error => {
+                    console.error('Error al obtener los juegos', error);
+                    return throwError(error);
+                })
+            );
     }
 
     // Obtener un juego por ID

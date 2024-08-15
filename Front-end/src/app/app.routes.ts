@@ -7,6 +7,11 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReviewComponent } from './components/review/review.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
+import { CrearJuegoComponent } from './components/crear-juego/crear-juego.component';
+import { LeerJuegoComponent } from './components/leer-juegos/leer-juegos.component';
+import { ActualizarJuegoComponent } from './components/actualizar-juego/actualizar-juego.component';
+import { BorrarJuegoComponent } from './components/borrar-juego/borrar-juego.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export const routes: Routes = [
     {       path: 'juego/:id', component: AddProductComponent},
@@ -17,6 +22,12 @@ export const routes: Routes = [
     {        path: 'register',        component: RegisterComponent    },
     {        path: 'review',        component: ReviewComponent    },
     {       path: 'navegacion', component: NavegacionComponent},
-    {       path: '**', component: HomeComponent}
-    
+    {path: 'admin',
+    component: AdminComponent},
+      { path: 'crear', component: CrearJuegoComponent },
+      { path: 'leer', component: LeerJuegoComponent },
+      { path: 'actualizar', component: ActualizarJuegoComponent },
+      { path: 'borrar', component: BorrarJuegoComponent }
+
+
 ];

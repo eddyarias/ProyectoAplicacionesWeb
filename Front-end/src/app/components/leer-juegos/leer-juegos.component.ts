@@ -1,46 +1,34 @@
-// leer-juegos.component.ts
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { JuegoService } from '../../services/juego.service';
-import { Juego } from '../../modules/juego';
+import { Global } from '../../services/global';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-leer-juegos',
   standalone: true,
-  imports: [],
+  imports:[CommonModule],
   templateUrl: './leer-juegos.component.html',
-  styleUrl: './leer-juegos.component.css',
-  providers: [JuegoService]
+  styleUrls: ['./leer-juegos.component.css']
 })
+export class LeerJuegoComponent implements OnInit {
+  juegos: any[] = [];  // Almacena la lista de juegos
 
-export class LeerJuegosComponent implements OnInit {
-  public juegos: Juego[] = [];
+  constructor(private juegoService: JuegoService) {}
 
-  constructor(private _juegoService: JuegoService) {}
-
-  ngOnInit() {
-    this.cargarJuegos();
+  ngOnInit(): void {
+    this.loadGames();  // Carga todos los juegos al inicializar el componente
   }
 
-  cargarJuegos() {
-    this._juegoService.getGames().subscribe(
+  loadGames(): void {
+    this.juegoService.getGames().subscribe(
       response => {
         if (response.games) {
           this.juegos = response.games;
         }
       },
       error => {
-        console.log(error);
-      }
-    );
-  }
-
-  eliminarJuego(id: string) {
-    this._juegoService.deleteGame(id).subscribe(
-      response => {
-        this.cargarJuegos(); // Reload the list after deletion
-      },
-      error => {
-        console.log(error);
+        console.error('Error al obtener los juegos', error);
       }
     );
   }

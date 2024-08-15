@@ -3,11 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { JuegoService } from '../../services/juego.service';
 import { Juego } from '../../modules/juego'; // Asegúrate de que la ruta sea correcta
 import { NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-actualizar-juego',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './actualizar-juego.component.html',
   styleUrls: ['./actualizar-juego.component.css'], // Corregido el nombre de la propiedad
   providers: [JuegoService]

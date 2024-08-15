@@ -1,0 +1,25 @@
+<div class="tabs">
+    <button (click)="setActiveTab('crear')" [class.active]="isActiveTab('crear')">Crear Juego</button>
+    <button (click)="setActiveTab('leer')" [class.active]="isActiveTab('leer')">Leer Juegos</button>
+    <button (click)="setActiveTab('actualizar')" [class.active]="isActiveTab('actualizar')">Actualizar Juego</button>
+    <button (click)="setActiveTab('borrar')" [class.active]="isActiveTab('borrar')">Eliminar Juego</button>
+  </div>
+  
+  <div class="tab-content">
+    <ng-container *ngIf="isActiveTab('crear')">
+      <app-crear-juego></app-crear-juego>
+    </ng-container>
+    
+    <ng-container *ngIf="isActiveTab('leer')">
+      <app-leer-juegos></app-leer-juegos>
+    </ng-container>
+    
+    <ng-container *ngIf="isActiveTab('actualizar')">
+      <app-actualizar-juego></app-actualizar-juego>
+    </ng-container>
+    
+    <ng-container *ngIf="isActiveTab('borrar')">
+      <app-borrar-juego></app-borrar-juego>
+    </ng-container>
+  </div>
+  

@@ -1,4 +1,6 @@
-<table>
+<div class="listar-juegos-container">
+  <h2>Listado de Juegos Disponibles</h2>
+  <table>
     <thead>
       <tr>
         <th>Nombre</th>
@@ -9,25 +11,19 @@
         <th>Rating</th>
         <th>Plataforma</th>
         <th>Género</th>
-        <th>Portada</th>
-        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let juego of juegos">
-        <td>{{juego.nombre}}</td>
-        <td>{{juego.descripcion}}</td>
-        <td>{{juego.precio}}</td>
-        <td>{{juego.stock}}</td>
-        <td>{{juego.sku}}</td>
-        <td>{{juego.rating}}</td>
-        <td>{{juego.plataforma}}</td>
-        <td>{{juego.genero}}</td>
-        <td><img [src]="url + 'images/' + juego.portada" alt="Portada" width="50"></td>
-        <td>
-          <button (click)="eliminarJuego(juego._id)">Eliminar</button>
-        </td>
+        <td>{{ juego.nombre }}</td>
+        <td>{{ juego.descripcion }}</td>
+        <td>{{ juego.precio }}</td>
+        <td>{{ juego.stock }}</td>
+        <td>{{ juego.sku }}</td>
+        <td>{{ juego.rating }}</td>
+        <td>{{ juego.plataforma }}</td>
+        <td>{{ juego.genero }}</td>
       </tr>
     </tbody>
   </table>
-  
+</div>

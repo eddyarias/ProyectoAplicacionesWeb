@@ -152,34 +152,36 @@ let controller = {
     },
 
     // Subir la portada del juego
-    uploadImagen: async function(req, res) {
-        try {
-            let gameId = req.params.id;
-            let fileName = 'Imagen no subida';
+    // En gameController.js
+uploadImage: async function(req, res) { // Cambia de uploadImagen a uploadImage
+    try {
+        let gameId = req.params.id;
+        let fileName = 'Imagen no subida';
 
-            if (req.files) {
-                let filePath = req.files.portada.path;
-                let fileSplit = filePath.split('\\');
-                fileName = fileSplit[1];
-                let extSplit = fileName.split('.');
-                let fileExt = extSplit[1];
+        if (req.files) {
+            let filePath = req.files.portada.path;
+            let fileSplit = filePath.split('\\');
+            fileName = fileSplit[1];
+            let extSplit = fileName.split('.');
+            let fileExt = extSplit[1];
 
-                if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt.toLowerCase())) {
-                    let gameUpdated = await Game.findByIdAndUpdate(gameId, { portada: fileName }, { new: true });
-                    if (!gameUpdated) return res.status(404).send({ message: 'El juego no existe y no se puede subir la imagen' });
-                    return res.status(200).send({ game: gameUpdated });
-                } else {
-                    fs.unlink(filePath, (err) => {
-                        return res.status(200).send({ message: 'Extensión no válida' });
-                    });
-                }
+            if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt.toLowerCase())) {
+                let gameUpdated = await Game.findByIdAndUpdate(gameId, { portada: fileName }, { new: true });
+                if (!gameUpdated) return res.status(404).send({ message: 'El juego no existe y no se puede subir la imagen' });
+                return res.status(200).send({ game: gameUpdated });
             } else {
-                return res.status(200).send({ message: fileName });
+                fs.unlink(filePath, (err) => {
+                    return res.status(200).send({ message: 'Extensión no válida' });
+                });
             }
-        } catch (error) {
-            return res.status(500).send({ message: 'La imagen no se ha subido', error: error.message });
+        } else {
+            return res.status(200).send({ message: fileName });
         }
+    } catch (error) {
+        return res.status(500).send({ message: 'La imagen no se ha subido', error: error.message });
     }
+}
+
 }
 
 
